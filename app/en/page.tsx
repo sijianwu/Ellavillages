@@ -1,9 +1,5 @@
-
-'use client';
-
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ComfortConvenienceAnimated } from '@/components/comfort-convenience-animated';
 import { CommunityFeaturesAnimated } from '@/components/community-features-animated';
@@ -12,71 +8,19 @@ import { PropertyGrid } from '@/components/property-grid';
 // Using system fonts instead of Google Fonts
 
 export default function EnglishPage() {
-  const [activeNavItem, setActiveNavItem] = useState('home');
-  const [underlineStyle, setUnderlineStyle] = useState({ width: 0, left: 0 });
-  const navRefs = useRef<(HTMLAnchorElement | null)[]>([]);
-
-  const navItems = [
-    { key: 'home', href: '/en', label: 'Home' },
-    { key: 'about', href: '/en/about', label: 'About' },
-    { key: 'properties', href: '/en/properties', label: 'Properties' }
-  ];
-
-  const updateUnderlinePosition = (selectedIndex: number) => {
-    const selectedNav = navRefs.current[selectedIndex];
-    if (selectedNav) {
-      const { offsetLeft, offsetWidth } = selectedNav;
-      setUnderlineStyle({
-        width: offsetWidth,
-        left: offsetLeft
-      });
-    }
-  };
-
-  useEffect(() => {
-    const selectedIndex = navItems.findIndex(item => item.key === activeNavItem);
-    if (selectedIndex !== -1) {
-      updateUnderlinePosition(selectedIndex);
-    }
-  }, [activeNavItem]);
-
-  const handleNavClick = (key: string) => {
-    setActiveNavItem(key);
-  };
-
   return (
     <>
       <div className="min-h-screen bg-white">
-      {/* Updated Navbar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white">
+      
+      {/* Test Navbar */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b">
         <div className="w-full px-4 md:px-8 lg:px-12">
           <div className="flex items-center justify-between h-24">
             {/* Left Navigation */}
-            <div className="hidden md:flex items-center space-x-8 relative">
-              {/* Animated underline */}
-              <div 
-                className="absolute -bottom-1.5 h-[1px] bg-black transition-all duration-300 ease-in-out"
-                style={{
-                  width: `${underlineStyle.width}px`,
-                  left: `${underlineStyle.left}px`
-                }}
-              ></div>
-              
-              {navItems.map((item, index) => (
-                <Link
-                  key={item.key}
-                  ref={(el) => { navRefs.current[index] = el; }}
-                  href={item.href}
-                  onClick={() => handleNavClick(item.key)}
-                  className={`text-sm font-medium font-poppins transition-colors ${
-                    activeNavItem === item.key
-                      ? 'text-black'
-                      : 'text-gray-500 hover:text-gray-600'
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              ))}
+            <div className="hidden md:flex items-center space-x-8">
+              <Link href="/en" className="text-sm font-medium text-black">Home</Link>
+              <Link href="/en/about" className="text-sm font-medium text-gray-500 hover:text-gray-600">About</Link>
+              <Link href="/en/properties" className="text-sm font-medium text-gray-500 hover:text-gray-600">Properties</Link>
             </div>
 
             {/* Centered Logo */}
@@ -91,16 +35,11 @@ export default function EnglishPage() {
             </Link>
 
             {/* Right Navigation */}
-            <div className="flex items-center" style={{gap: '30px'}}>
-              <Link href="/en/contact" className="hidden md:block text-sm font-medium text-gray-500 hover:text-gray-600 font-poppins">Contact</Link>
-              <Button asChild variant="default" className="bg-black text-white hover:bg-gray-800 rounded-none">
+            <div className="flex items-center gap-8">
+              <Link href="/en/contact" className="hidden md:block text-sm font-medium text-gray-500 hover:text-gray-600">Contact</Link>
+              <Button asChild variant="default" className="bg-black text-white hover:bg-gray-800">
                 <Link href="/es" className="flex items-center space-x-2">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10"/>
-                    <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
-                    <path d="M2 12h20"/>
-                  </svg>
-                  English
+                  <span>English</span>
                 </Link>
               </Button>
             </div>
