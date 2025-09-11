@@ -6,13 +6,13 @@ export function ComfortConvenienceAnimated() {
   return (
     <section className="bg-white px-4 py-20">
       <div className="container mx-auto max-w-7xl">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="flex lg:flex-row flex-col gap-12 items-center justify-between">
           {/* Left Content - Text Description */}
-          <div className="space-y-6">
-            <h2 className="text-[32px] font-serif font-bold text-gray-900 leading-tight max-w-[438px]">
+          <div className="flex-1 max-w-[438px] space-y-6">
+            <h2 className="text-[32px] font-serif font-bold text-gray-900 leading-tight">
               Where Comfort Meets<br />Convenience
             </h2>
-            <p className="text-[14px] text-gray-600 leading-relaxed max-w-[438px]">
+            <p className="text-[14px] text-gray-600 leading-relaxed">
               Discover the perfect blend of comfort and convenience in our thoughtfully designed small cozy condo units. 
               Ideal for singles, couples, or working professionals, each unit offers a warm, inviting space that feels 
               like home the moment you walk in.
@@ -20,7 +20,7 @@ export function ComfortConvenienceAnimated() {
           </div>
           
           {/* Right Content - Pricing Cards */}
-          <div className="flex flex-row justify-center gap-4">
+          <div className="flex flex-row justify-center gap-4 flex-shrink-0">
             {/* Unit A/B/C/D Card */}
             <motion.div
               whileHover="hover"
@@ -38,7 +38,7 @@ export function ComfortConvenienceAnimated() {
                   transition={{ duration: 1, ease: "backInOut" }}
                   className="mb-4 block origin-top-left font-serif text-[46px] font-normal leading-[0.9]"
                 >
-                  $1600 /<br />Month
+                  $1600<br />Month
                 </motion.span>
                 <div className="flex-1 flex flex-col justify-between">
                   <div>
@@ -99,7 +99,7 @@ export function ComfortConvenienceAnimated() {
                   transition={{ duration: 1, ease: "backInOut" }}
                   className="mb-4 block origin-top-left font-serif text-[46px] font-normal leading-[0.9]"
                 >
-                  $1800 /<br />Month
+                  $1800<br />Month
                 </motion.span>
                 <div className="flex-1 flex flex-col justify-between">
                   <div>
