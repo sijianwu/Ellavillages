@@ -1,5 +1,6 @@
 import { NavbarSSR } from '@/components/navbar-ssr';
 import { HeroSSR } from '@/components/hero-ssr';
+import { ComfortConvenienceSSR } from '@/components/comfort-convenience-ssr';
 import { IntroSSR } from '@/components/intro-ssr';
 import { PricingCardsSSR } from '@/components/pricing-cards-ssr';
 import { CommunityFeaturesSSR } from '@/components/community-features-ssr';
@@ -19,6 +20,7 @@ export default async function HomePage({ params }: HomePageProps) {
     <main className="min-h-screen">
       <NavbarSSR locale={locale} />
       <HeroSSR />
+      <ComfortConvenienceSSR />
       <IntroSSR />
       <PricingCardsSSR />
       <CommunityFeaturesSSR />

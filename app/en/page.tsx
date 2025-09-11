@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import { ComfortConvenienceAnimated } from '@/components/comfort-convenience-animated';
 
 // Using system fonts instead of Google Fonts
 
@@ -127,6 +128,9 @@ export default function EnglishPage() {
           </div>
         </div>
       </div>
+      
+        {/* Where Comfort Meets Convenience Section */}
+        <ComfortConvenienceAnimated />
       </div>
     </>
   );
