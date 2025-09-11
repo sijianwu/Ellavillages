@@ -1,15 +1,13 @@
+
 import Image from 'next/image';
+import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 
-// Temporarily add Google Fonts via CSS import
-const fontStyles = `
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Prata&family=Rozha+One&display=swap');
-`;
+// Using system fonts instead of Google Fonts
 
 export default function EnglishPage() {
   return (
     <>
-      <style dangerouslySetInnerHTML={{ __html: fontStyles }} />
       <div className="min-h-screen bg-white">
       {/* Updated Navbar */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white">
@@ -17,16 +15,16 @@ export default function EnglishPage() {
           <div className="flex items-center justify-between h-24">
             {/* Left Navigation */}
             <div className="hidden md:flex items-center space-x-8">
-              <a href="/en" className="text-sm font-medium text-black font-poppins relative">
+              <Link href="/en" className="text-sm font-medium text-black font-poppins relative">
                 Home
                 <div className="absolute bottom-[-8px] left-0 w-full h-[1px] bg-black"></div>
-              </a>
-              <a href="/en/about" className="text-sm font-medium text-gray-500 hover:text-gray-600 font-poppins">About</a>
-              <a href="/en/properties" className="text-sm font-medium text-gray-500 hover:text-gray-600 font-poppins">Properties</a>
+              </Link>
+              <Link href="/en/about" className="text-sm font-medium text-gray-500 hover:text-gray-600 font-poppins">About</Link>
+              <Link href="/en/properties" className="text-sm font-medium text-gray-500 hover:text-gray-600 font-poppins">Properties</Link>
             </div>
 
             {/* Centered Logo */}
-            <a href="/en" className="flex items-center absolute left-1/2 transform -translate-x-1/2">
+            <Link href="/en" className="flex items-center absolute left-1/2 transform -translate-x-1/2">
               <Image
                 src="/assets/images/navbar_logo.svg"
                 alt="Ellavillages"
@@ -34,20 +32,20 @@ export default function EnglishPage() {
                 height={78}
                 className="w-20 h-20"
               />
-            </a>
+            </Link>
 
             {/* Right Navigation */}
             <div className="flex items-center" style={{gap: '30px'}}>
-              <a href="/en/contact" className="hidden md:block text-sm font-medium text-gray-500 hover:text-gray-600 font-poppins">Contact</a>
+              <Link href="/en/contact" className="hidden md:block text-sm font-medium text-gray-500 hover:text-gray-600 font-poppins">Contact</Link>
               <Button asChild variant="default" className="bg-black text-white hover:bg-gray-800 rounded-none">
-                <a href="/es" className="flex items-center space-x-2">
+                <Link href="/es" className="flex items-center space-x-2">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <circle cx="12" cy="12" r="10"/>
                     <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
                     <path d="M2 12h20"/>
                   </svg>
                   English
-                </a>
+                </Link>
               </Button>
             </div>
           </div>
@@ -81,7 +79,7 @@ export default function EnglishPage() {
             <div className="flex-1 relative">
               <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-4 h-full min-h-[400px]">
                 {/* Left - House Exterior (spans 2 rows) */}
-                <div className="relative overflow-hidden rounded-lg md:row-span-2">
+                <div className="relative overflow-hidden  md:row-span-2">
                   <Image
                     src="/assets/images/house-exterior.jpg"
                     alt="Modern house exterior"
@@ -93,7 +91,7 @@ export default function EnglishPage() {
                 </div>
                 
                 {/* Center Top - Kitchen Interior */}
-                <div className="relative overflow-hidden rounded-lg">
+                <div className="relative overflow-hidden ">
                   <Image
                     src="/assets/images/kitchen-interior.jpg"
                     alt="Modern kitchen interior"
@@ -104,7 +102,7 @@ export default function EnglishPage() {
                 </div>
                 
                 {/* Right - Living Room (spans 2 rows) */}
-                <div className="relative overflow-hidden rounded-lg md:row-span-2">
+                <div className="relative overflow-hidden  md:row-span-2">
                   <Image
                     src="/assets/images/living-room.jpg"
                     alt="Cozy living room"
@@ -115,7 +113,7 @@ export default function EnglishPage() {
                 </div>
                 
                 {/* Center Bottom - House Night View */}
-                <div className="relative overflow-hidden rounded-lg">
+                <div className="relative overflow-hidden ">
                   <Image
                     src="/assets/images/house-night.jpg"
                     alt="Modern house at night"

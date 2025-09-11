@@ -55,9 +55,9 @@ export function Footer() {
                     key={item.key}
                     href={`/${locale}${item.href}`}
                     className="block text-gray-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black rounded-sm"
-                    aria-label={t(item.key as any)}
+                    aria-label={t(item.key as string)}
                   >
-                    {t(item.key as any)}
+                    {t(item.key as string)}
                   </Link>
                 ))}
               </nav>

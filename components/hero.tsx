@@ -1,7 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import Image from 'next/image';
+// import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Play } from 'lucide-react';
 
@@ -82,10 +82,10 @@ export function Hero() {
           {/* Right Content - Property Grid */}
           <div className="relative">
             <div className="grid grid-cols-3 gap-4 h-[600px]">
-              {propertyImages.map((image, index) => (
+              {propertyImages.map((image) => (
                 <div
                   key={image.id}
-                  className={`relative rounded-2xl overflow-hidden ${image.className}`}
+                  className={`relative overflow-hidden ${image.className}`}
                 >
                   {/* Placeholder for missing images */}
                   <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">

@@ -1,11 +1,18 @@
-import { Navbar } from '@/components/navbar';
-import { PropertyGrid } from '@/components/property-grid';
-import { Footer } from '@/components/footer';
+import { NavbarSSR } from '@/components/navbar-ssr';
+import { PropertyGridSSR } from '@/components/property-grid-ssr';
+import { FooterSSR } from '@/components/footer-ssr';
 
-export default function PropertiesPage() {
+interface PropertiesPageProps {
+  params: {
+    locale: string;
+  };
+}
+
+export default async function PropertiesPage({ params }: PropertiesPageProps) {
+  const { locale } = await params;
   return (
     <main className="min-h-screen">
-      <Navbar />
+      <NavbarSSR locale={locale} />
       
       <section className="pt-24 pb-8">
         <div className="container mx-auto px-4">
@@ -45,7 +52,7 @@ export default function PropertiesPage() {
         </div>
       </section>
       
-      <PropertyGrid />
+            <PropertyGridSSR />
       
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
@@ -55,7 +62,7 @@ export default function PropertiesPage() {
             </h2>
             <p className="text-gray-600 mb-8">
               Contact us today to schedule a viewing of any available unit. 
-              We'll be happy to show you around and answer any questions.
+              We&apos;ll be happy to show you around and answer any questions.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -76,7 +83,7 @@ export default function PropertiesPage() {
         </div>
       </section>
       
-      <Footer />
+      <FooterSSR locale={locale} />
     </main>
   );
 }

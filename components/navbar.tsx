@@ -177,9 +177,9 @@ export function Navbar() {
                           : 'text-gray-700'
                       }`}
                       onClick={() => setIsOpen(false)}
-                      aria-label={t(item.key as any)}
+                      aria-label={t(item.key as string)}
                     >
-                      {t(item.key as any)}
+                      {t(item.key as string)}
                     </Link>
                   ))}
                 </div>

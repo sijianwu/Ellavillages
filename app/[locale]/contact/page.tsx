@@ -1,71 +1,21 @@
-'use client';
-
-import { useState } from 'react';
-import { Navbar } from '@/components/navbar';
-import { ContactPanel } from '@/components/contact-panel';
-import { Footer } from '@/components/footer';
+import { NavbarSSR } from '@/components/navbar-ssr';
+import { ContactPanelSSR } from '@/components/contact-panel-ssr';
+import { FooterSSR } from '@/components/footer-ssr';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
-export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: '',
-    preferredUnit: ''
-  });
-
-  const [errors, setErrors] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Basic validation
-    const newErrors = {
-      name: formData.name.trim() === '' ? 'Name is required' : '',
-      email: formData.email.trim() === '' ? 'Email is required' : '',
-      message: formData.message.trim() === '' ? 'Message is required' : ''
-    };
-
-    setErrors(newErrors);
-
-    // If no errors, submit form (placeholder)
-    if (Object.values(newErrors).every(error => error === '')) {
-      alert('Thank you for your message! We\'ll get back to you soon.');
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        message: '',
-        preferredUnit: ''
-      });
-    }
+interface ContactPageProps {
+  params: {
+    locale: string;
   };
+}
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-    
-    // Clear error when user starts typing
-    if (errors[name as keyof typeof errors]) {
-      setErrors(prev => ({
-        ...prev,
-        [name]: ''
-      }));
-    }
-  };
+export default async function ContactPage({ params }: ContactPageProps) {
+  const { locale } = await params;
 
   return (
     <main className="min-h-screen">
-      <Navbar />
+      <NavbarSSR locale={locale} />
       
       <section className="pt-24 pb-20">
         <div className="container mx-auto px-4">
@@ -76,20 +26,20 @@ export default function ContactPage() {
               </h1>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                 Ready to find your new home? Have questions about our properties? 
-                We'd love to hear from you.
+                We&apos;d love to hear from you.
               </p>
             </div>
             
             <div className="grid lg:grid-cols-2 gap-12">
               {/* Contact Form */}
-              <Card className="shadow-lg">
+              <Card className="border-0 shadow-lg">
                 <CardHeader>
-                  <CardTitle className="text-2xl text-gray-900">
+                  <CardTitle className="text-2xl font-bold text-gray-900">
                     Send us a Message
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                  <form className="space-y-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                         Full Name *
@@ -98,22 +48,12 @@ export default function ContactPage() {
                         type="text"
                         id="name"
                         name="name"
-                        value={formData.name}
-                        onChange={handleInputChange}
                         required
-                        aria-label="Full name"
-                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-gray-500 focus:border-gray-500 transition-colors ${
-                          errors.name ? 'border-red-500' : 'border-gray-300'
-                        }`}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-500 focus:border-gray-500 transition-colors"
                         placeholder="Your full name"
                       />
-                      {errors.name && (
-                        <p className="mt-1 text-sm text-red-600" role="alert">
-                          {errors.name}
-                        </p>
-                      )}
                     </div>
-
+                    
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                         Email Address *
@@ -122,22 +62,12 @@ export default function ContactPage() {
                         type="email"
                         id="email"
                         name="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
                         required
-                        aria-label="Email address"
-                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-gray-500 focus:border-gray-500 transition-colors ${
-                          errors.email ? 'border-red-500' : 'border-gray-300'
-                        }`}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-500 focus:border-gray-500 transition-colors"
                         placeholder="your.email@example.com"
                       />
-                      {errors.email && (
-                        <p className="mt-1 text-sm text-red-600" role="alert">
-                          {errors.email}
-                        </p>
-                      )}
                     </div>
-
+                    
                     <div>
                       <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
                         Phone Number
@@ -146,33 +76,30 @@ export default function ContactPage() {
                         type="tel"
                         id="phone"
                         name="phone"
-                        value={formData.phone}
-                        onChange={handleInputChange}
-                        aria-label="Phone number"
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-500 focus:border-gray-500 transition-colors"
                         placeholder="(555) 123-4567"
                       />
                     </div>
-
+                    
                     <div>
                       <label htmlFor="preferredUnit" className="block text-sm font-medium text-gray-700 mb-2">
-                        Preferred Unit Type
+                        Preferred Unit
                       </label>
                       <select
                         id="preferredUnit"
                         name="preferredUnit"
-                        value={formData.preferredUnit}
-                        onChange={handleInputChange}
-                        aria-label="Preferred unit type"
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-500 focus:border-gray-500 transition-colors"
                       >
-                        <option value="">Select a unit type</option>
-                        <option value="1600-units">$1,600 Units (A, B, C, D)</option>
-                        <option value="1800-units">$1,800 Units (E, F)</option>
-                        <option value="any">Any available unit</option>
+                        <option value="">Select a unit</option>
+                        <option value="unit-a">Unit A - $1600/month</option>
+                        <option value="unit-b">Unit B - $1600/month</option>
+                        <option value="unit-c">Unit C - $1600/month</option>
+                        <option value="unit-d">Unit D - $1600/month</option>
+                        <option value="unit-e">Unit E - $1800/month</option>
+                        <option value="unit-f">Unit F - $1800/month</option>
                       </select>
                     </div>
-
+                    
                     <div>
                       <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
                         Message *
@@ -180,27 +107,16 @@ export default function ContactPage() {
                       <textarea
                         id="message"
                         name="message"
-                        value={formData.message}
-                        onChange={handleInputChange}
                         required
                         rows={4}
-                        aria-label="Your message"
-                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-gray-500 focus:border-gray-500 transition-colors resize-vertical ${
-                          errors.message ? 'border-red-500' : 'border-gray-300'
-                        }`}
-                        placeholder="Tell us about what you're looking for, preferred move-in date, or any questions you have..."
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-500 focus:border-gray-500 transition-colors resize-vertical"
+                        placeholder="Tell us about what you&apos;re looking for, preferred move-in date, or any questions you have..."
                       />
-                      {errors.message && (
-                        <p className="mt-1 text-sm text-red-600" role="alert">
-                          {errors.message}
-                        </p>
-                      )}
                     </div>
-
+                    
                     <Button 
-                      type="submit"
-                      className="w-full bg-gray-900 hover:bg-gray-800 text-white py-3 rounded-lg transition-colors focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
-                      aria-label="Send message"
+                      type="submit" 
+                      className="w-full bg-black text-white hover:bg-gray-800 rounded-none py-3"
                     >
                       Send Message
                     </Button>
@@ -208,66 +124,76 @@ export default function ContactPage() {
                 </CardContent>
               </Card>
 
-              {/* Contact Info & Map */}
+              {/* Contact Information */}
               <div className="space-y-8">
-                <Card className="shadow-lg">
-                  <CardHeader>
-                    <CardTitle className="text-2xl text-gray-900">
-                      Visit Our Office
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div>
-                      <h4 className="font-semibold text-gray-900 mb-2">Address</h4>
-                      <p className="text-gray-600">
-                        5420 Eglinton St<br />
-                        Houston, TX 77026
-                      </p>
-                    </div>
-                    
-                    <div>
-                      <h4 className="font-semibold text-gray-900 mb-2">Office Hours</h4>
-                      <p className="text-gray-600">
-                        Monday - Friday: 9:00 AM - 6:00 PM<br />
-                        Saturday: 10:00 AM - 4:00 PM<br />
-                        Sunday: By appointment only
-                      </p>
-                    </div>
-                    
-                    <div className="pt-4">
-                      <a
-                        href="https://maps.google.com/?q=5420+Eglinton+St,+Houston,+TX+77026"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-block bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-                        aria-label="Get directions on Google Maps"
-                      >
-                        Get Directions
-                      </a>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                <Card className="shadow-lg">
-                  <CardContent className="p-6">
-                    <div className="aspect-video bg-gradient-to-br from-blue-100 to-green-100 rounded-lg flex items-center justify-center">
-                      <div className="text-center text-gray-500">
-                        <div className="w-16 h-16 mx-auto mb-4 bg-white rounded-lg flex items-center justify-center shadow-lg">
-                          <span className="text-2xl">🗺️</span>
-                        </div>
-                        <span className="text-sm">Interactive Map</span>
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                    Contact Information
+                  </h2>
+                  <div className="space-y-6">
+                    <div className="flex items-start space-x-4">
+                      <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                        <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-semibold text-gray-900">Phone</h3>
+                        <p className="text-gray-600">(346) 268-2140</p>
+                        <p className="text-sm text-gray-500">Mon-Fri 9AM-6PM</p>
                       </div>
                     </div>
-                  </CardContent>
-                </Card>
+                    
+                    <div className="flex items-start space-x-4">
+                      <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                        <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-semibold text-gray-900">Email</h3>
+                        <p className="text-gray-600">info@ellavillages.com</p>
+                        <p className="text-sm text-gray-500">We&apos;ll respond within 24 hours</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-start space-x-4">
+                      <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
+                        <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-semibold text-gray-900">Location</h3>
+                        <p className="text-gray-600">Houston, TX</p>
+                        <p className="text-sm text-gray-500">Visit our office</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="bg-gray-50 p-6 rounded-lg">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                    Quick Response
+                  </h3>
+                  <p className="text-gray-600 mb-4">
+                    We typically respond to all inquiries within 24 hours. For urgent matters, please call us directly.
+                  </p>
+                  <div className="space-y-2 text-sm text-gray-500">
+                    <p>• Available units updated daily</p>
+                    <p>• Virtual tours available</p>
+                    <p>• Flexible viewing schedules</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
       
-      <ContactPanel />
-      <Footer />
+      <ContactPanelSSR />
+      <FooterSSR locale={locale} />
     </main>
   );
 }

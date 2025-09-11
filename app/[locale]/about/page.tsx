@@ -1,11 +1,17 @@
-import { Navbar } from '@/components/navbar';
-import { Footer } from '@/components/footer';
-import { useTranslations } from 'next-intl';
+import { NavbarSSR } from '@/components/navbar-ssr';
+import { FooterSSR } from '@/components/footer-ssr';
 
-export default function AboutPage() {
+interface AboutPageProps {
+  params: {
+    locale: string;
+  };
+}
+
+export default async function AboutPage({ params }: AboutPageProps) {
+  const { locale } = await params;
   return (
     <main className="min-h-screen">
-      <Navbar />
+      <NavbarSSR locale={locale} />
       
       <section className="pt-24 pb-20">
         <div className="container mx-auto px-4">
@@ -15,7 +21,7 @@ export default function AboutPage() {
                 About Ellavillages
               </h1>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                We're dedicated to providing modern, comfortable, and affordable living spaces 
+                We&apos;re dedicated to providing modern, comfortable, and affordable living spaces 
                 in safe neighborhoods across Houston.
               </p>
             </div>
@@ -31,7 +37,7 @@ export default function AboutPage() {
                   and the convenience you need for comfortable living.
                 </p>
                 <p className="text-gray-600 leading-relaxed">
-                  Whether you're a young professional, a couple starting out, or someone looking 
+                  Whether you&apos;re a young professional, a couple starting out, or someone looking 
                   for a fresh start, our communities are designed to feel like home from day one.
                 </p>
               </div>
@@ -81,7 +87,7 @@ export default function AboutPage() {
         </div>
       </section>
       
-      <Footer />
+      <FooterSSR locale={locale} />
     </main>
   );
 }
