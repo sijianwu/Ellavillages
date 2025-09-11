@@ -35,7 +35,7 @@ export function CommunityFeaturesAnimated() {
       <div className="container mx-auto">
         {/* Title */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-serif font-bold text-gray-900 mb-4">
+          <h2 className="text-[38px] font-serif font-normal text-black leading-[42px] mb-4">
             Community
           </h2>
         </div>
@@ -63,7 +63,7 @@ export function CommunityFeaturesAnimated() {
 
               {/* Content */}
               <div className="p-6 pb-12">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                <h3 className="text-xl font-serif font-bold text-gray-900 mb-2">
                   {feature.title}
                 </h3>
                 <p className="text-gray-600 text-sm leading-relaxed">

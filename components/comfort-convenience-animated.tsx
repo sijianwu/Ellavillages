@@ -9,7 +9,7 @@ export function ComfortConvenienceAnimated() {
         <div className="flex lg:flex-row flex-col gap-12 items-center justify-between">
           {/* Left Content - Text Description */}
           <div className="flex-1 max-w-[438px] space-y-6">
-            <h2 className="text-[32px] font-serif font-bold text-gray-900 leading-tight">
+            <h2 className="text-[38px] font-serif font-normal text-black leading-[42px]">
               Where Comfort Meets<br />Convenience
             </h2>
             <p className="text-[14px] text-gray-600 leading-relaxed">
