@@ -1,0 +1,53 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "properties": "Properties",
+    "contact": "Contact",
+    "language": "English"
+  },
+  "hero": {
+    "title": "Discover Cozy Living",
+    "subtitle": "With Reasonable Rent",
+    "description": "Modern, cozy condos in safe neighborhoods."
+  },
+  "intro": {
+    "title": "Where Comfort Meets Convenience",
+    "description": "Discover the perfect blend of comfort and convenience in our thoughtfully designed smart cozy condo units. Ideal for singles, couples, or working professionals seeking a living solution that feels like home the moment you walk in."
+  },
+  "pricing": {
+    "available": "Available",
+    "month": "Month",
+    "schedule": "Schedule a Viewing",
+    "unitA": "Unit A/B/C/D",
+    "unitE": "Unit E/F",
+    "deposit": "Security deposit not included",
+    "utilities": "Utilities not included"
+  },
+  "community": {
+    "title": "Community",
+    "modern": "Modern",
+    "modernDesc": "Smart use of space with modern layouts",
+    "quiet": "Quiet",
+    "quietDesc": "Quiet, safe neighborhood",
+    "convenient": "Convenient",
+    "convenientDesc": "Close to shops, cafes, and public transport",
+    "longTerm": "Long-term",
+    "longTermDesc": "Ideal for long-term stays"
+  },
+  "properties": {
+    "title": "Properties",
+    "subtitle": "Each cluster 14",
+    "schedule": "Schedule Visit",
+    "available": "Available"
+  },
+  "contact": {
+    "title": "Contact",
+    "phone": "Phone",
+    "email": "Email",
+    "address": "Address",
+    "phoneNumber": "+1 346 268 2140",
+    "emailAddress": "ellavillages@gmail.com",
+    "fullAddress": "5420 Eglinton St, Houston, TX 77026"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "navigation": {
+    "home": "Inicio",
+    "about": "Acerca de",
+    "properties": "Propiedades",
+    "contact": "Contacto",
+    "language": "Español"
+  },
+  "hero": {
+    "title": "Descubre Vida Acogedora",
+    "subtitle": "Con Alquiler Razonable",
+    "description": "Condominios modernos y acogedores en vecindarios seguros."
+  },
+  "intro": {
+    "title": "Donde la Comodidad Se Encuentra con la Conveniencia",
+    "description": "Descubre la combinación perfecta de comodidad y conveniencia en nuestras unidades de condominios inteligentes y acogedoras cuidadosamente diseñadas. Ideal para solteros, parejas o profesionales que buscan una solución de vivienda que se sienta como hogar desde el momento en que entras."
+  },
+  "pricing": {
+    "available": "Disponible",
+    "month": "Mes",
+    "schedule": "Programar una Visita",
+    "unitA": "Unidad A/B/C/D",
+    "unitE": "Unidad E/F",
+    "deposit": "Depósito de seguridad no incluido",
+    "utilities": "Servicios públicos no incluidos"
+  },
+  "community": {
+    "title": "Comunidad",
+    "modern": "Moderno",
+    "modernDesc": "Uso inteligente del espacio con diseños modernos",
+    "quiet": "Tranquilo",
+    "quietDesc": "Vecindario tranquilo y seguro",
+    "convenient": "Conveniente",
+    "convenientDesc": "Cerca de tiendas, cafés y transporte público",
+    "longTerm": "Largo plazo",
+    "longTermDesc": "Ideal para estancias de largo plazo"
+  },
+  "properties": {
+    "title": "Propiedades",
+    "subtitle": "Cada grupo 14",
+    "schedule": "Programar Visita",
+    "available": "Disponible"
+  },
+  "contact": {
+    "title": "Contacto",
+    "phone": "Teléfono",
+    "email": "Correo",
+    "address": "Dirección",
+    "phoneNumber": "+1 346 268 2140",
+    "emailAddress": "ellavillages@gmail.com",
+    "fullAddress": "5420 Eglinton St, Houston, TX 77026"
+  }
+}
