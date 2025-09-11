@@ -50,10 +50,10 @@ export function CommunityFeaturesAnimated() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
               whileHover={{ y: -5 }}
-              className="bg-[#F7F8EF] overflow-hidden transition-transform duration-300 relative"
+              className="bg-[#F7F8EF] overflow-hidden transition-transform duration-300 relative aspect-[4/5] max-w-sm mx-auto"
             >
               {/* Image */}
-              <div className="relative h-48 overflow-hidden">
+              <div className="relative h-48 sm:h-52 overflow-hidden">
                 <img
                   src={feature.image}
                   alt={feature.title}
