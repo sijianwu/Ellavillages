@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import { NavbarSSR } from '@/components/navbar-ssr';
 import { ComfortConvenienceAnimated } from '@/components/comfort-convenience-animated';
 import { CommunityFeaturesAnimated } from '@/components/community-features-animated';
 import { PropertyGrid } from '@/components/property-grid';
@@ -10,42 +11,8 @@ import { PropertyGrid } from '@/components/property-grid';
 export default function EnglishPage() {
   return (
     <>
+      <NavbarSSR locale="en" />
       <div className="min-h-screen bg-white">
-      
-      {/* Test Navbar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b">
-        <div className="w-full px-4 md:px-8 lg:px-12">
-          <div className="flex items-center justify-between h-24">
-            {/* Left Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
-              <Link href="/en" className="text-sm font-medium text-black">Home</Link>
-              <Link href="/en/about" className="text-sm font-medium text-gray-500 hover:text-gray-600">About</Link>
-              <Link href="/en/properties" className="text-sm font-medium text-gray-500 hover:text-gray-600">Properties</Link>
-            </div>
-
-            {/* Centered Logo */}
-            <Link href="/en" className="flex items-center absolute left-1/2 transform -translate-x-1/2">
-              <Image
-                src="/assets/images/navbar_logo.svg"
-                alt="Ellavillages"
-                width={78}
-                height={78}
-                className="w-20 h-20"
-              />
-            </Link>
-
-            {/* Right Navigation */}
-            <div className="flex items-center gap-8">
-              <Link href="/en/contact" className="hidden md:block text-sm font-medium text-gray-500 hover:text-gray-600">Contact</Link>
-              <Button asChild variant="default" className="bg-black text-white hover:bg-gray-800">
-                <Link href="/es" className="flex items-center space-x-2">
-                  <span>English</span>
-                </Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </nav>
       
       {/* Hero Section */}
       <div className="pt-24 min-h-screen relative bg-white">
