@@ -1,4 +1,4 @@
-import { NavbarSSR } from '@/components/navbar-ssr';
+import { NavbarClient } from '@/components/navbar-client';
 import { ContactPanelSSR } from '@/components/contact-panel-ssr';
 import { FooterSSR } from '@/components/footer-ssr';
 import { Button } from '@/components/ui/button';
@@ -15,7 +15,7 @@ export default async function ContactPage({ params }: ContactPageProps) {
 
   return (
     <main className="min-h-screen">
-      <NavbarSSR locale={locale} />
+      <NavbarClient locale={locale} />
       
       <section className="pt-24 pb-20">
         <div className="container mx-auto px-4">

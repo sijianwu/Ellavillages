@@ -1,4 +1,4 @@
-import { NavbarSSR } from '@/components/navbar-ssr';
+import { NavbarClient } from '@/components/navbar-client';
 import { HeroSSR } from '@/components/hero-ssr';
 import { ComfortConvenienceSSR } from '@/components/comfort-convenience-ssr';
 import { IntroSSR } from '@/components/intro-ssr';
@@ -18,7 +18,7 @@ export default async function HomePage({ params }: HomePageProps) {
   const { locale } = await params;
   return (
     <main className="min-h-screen">
-      <NavbarSSR locale={locale} />
+      <NavbarClient locale={locale} />
       <HeroSSR />
       <ComfortConvenienceSSR />
       <IntroSSR />

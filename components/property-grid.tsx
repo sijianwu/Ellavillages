@@ -166,7 +166,7 @@ export function PropertyGrid() {
 
                     {/* Action Button */}
                     <Button 
-                      className="w-full bg-white border border-black text-gray-900 hover:bg-gray-50 py-3 transition-colors focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 font-medium rounded-none shadow-none"
+                      className="w-full bg-white border border-black text-gray-900 hover:bg-black hover:text-white py-3 transition-colors focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 font-medium rounded-none shadow-none"
                     >
                       Schedule Visit
                     </Button>

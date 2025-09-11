@@ -1,4 +1,4 @@
-import { NavbarSSR } from '@/components/navbar-ssr';
+import { NavbarClient } from '@/components/navbar-client';
 import { PropertyGridSSR } from '@/components/property-grid-ssr';
 import { FooterSSR } from '@/components/footer-ssr';
 
@@ -12,7 +12,7 @@ export default async function PropertiesPage({ params }: PropertiesPageProps) {
   const { locale } = await params;
   return (
     <main className="min-h-screen">
-      <NavbarSSR locale={locale} />
+      <NavbarClient locale={locale} />
       
       <section className="pt-24 pb-8">
         <div className="container mx-auto px-4">

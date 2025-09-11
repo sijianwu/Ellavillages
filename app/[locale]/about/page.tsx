@@ -1,4 +1,4 @@
-import { NavbarSSR } from '@/components/navbar-ssr';
+import { NavbarClient } from '@/components/navbar-client';
 import { FooterSSR } from '@/components/footer-ssr';
 
 interface AboutPageProps {
@@ -11,7 +11,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
   const { locale } = await params;
   return (
     <main className="min-h-screen">
-      <NavbarSSR locale={locale} />
+      <NavbarClient locale={locale} />
       
       <section className="pt-24 pb-20">
         <div className="container mx-auto px-4">

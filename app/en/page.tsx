@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { NavbarSSR } from '@/components/navbar-ssr';
+import { NavbarClient } from '@/components/navbar-client';
 import { ComfortConvenienceAnimated } from '@/components/comfort-convenience-animated';
 import { CommunityFeaturesAnimated } from '@/components/community-features-animated';
 import { PropertyGrid } from '@/components/property-grid';
@@ -11,7 +11,7 @@ import { PropertyGrid } from '@/components/property-grid';
 export default function EnglishPage() {
   return (
     <>
-      <NavbarSSR locale="en" />
+      <NavbarClient locale="en" />
       <div className="min-h-screen bg-white">
       
       {/* Hero Section */}
