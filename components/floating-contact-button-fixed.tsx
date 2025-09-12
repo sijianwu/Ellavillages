@@ -37,9 +37,10 @@ export function FloatingContactButton({ locale = 'en' }: FloatingContactButtonPr
         onClick={handleClick}
         style={{ 
           '--gradient-from': '#4f46e5', 
-          '--gradient-to': '#7c3aed' 
+          '--gradient-to': '#7c3aed'
         } as React.CSSProperties}
         className="relative w-[60px] h-[60px] bg-black shadow-lg rounded-full flex items-center justify-center transition-all duration-500 hover:w-[200px] hover:shadow-none group cursor-pointer"
+        onFocus={(e) => (e.target as HTMLElement).blur()}
       >
         {/* Gradient background on hover */}
         <span className="absolute inset-0 rounded-full bg-[linear-gradient(45deg,var(--gradient-from),var(--gradient-to))] opacity-0 transition-all duration-500 group-hover:opacity-100"></span>
