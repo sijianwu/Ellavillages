@@ -15,6 +15,30 @@ export function NavbarClient({ locale = 'en' }: NavbarClientProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
+  // Translations for navigation items
+  const translations = {
+    en: {
+      home: 'Home',
+      about: 'About',
+      properties: 'Properties',
+      contact: 'Contact',
+      switchToSpanish: 'Español',
+      switchToEnglish: 'English',
+      mobileSwitch: 'Switch to English'
+    },
+    es: {
+      home: 'Inicio',
+      about: 'Acerca de',
+      properties: 'Propiedades',
+      contact: 'Contacto',
+      switchToSpanish: 'Español',
+      switchToEnglish: 'English',
+      mobileSwitch: 'Cambiar a Inglés'
+    }
+  };
+
+  const t = translations[locale as keyof typeof translations] || translations.en;
+
   const isActive = (path: string) => {
     if (path === `/${locale}`) {
       return pathname === `/${locale}` || pathname === `/${locale}/`;
@@ -23,10 +47,10 @@ export function NavbarClient({ locale = 'en' }: NavbarClientProps) {
   };
 
   const navigationItems = [
-    { href: `/${locale}`, label: 'Home', path: `/${locale}` },
-    { href: `/${locale}/about`, label: 'About', path: `/${locale}/about` },
-    { href: `/${locale}/properties`, label: 'Properties', path: `/${locale}/properties` },
-    { href: `/${locale}/contact`, label: 'Contact', path: `/${locale}/contact` },
+    { href: `/${locale}`, label: t.home, path: `/${locale}` },
+    { href: `/${locale}/about`, label: t.about, path: `/${locale}/about` },
+    { href: `/${locale}/properties`, label: t.properties, path: `/${locale}/properties` },
+    { href: `/${locale}/contact`, label: t.contact, path: `/${locale}/contact` },
   ];
 
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
@@ -58,7 +82,7 @@ export function NavbarClient({ locale = 'en' }: NavbarClientProps) {
                     : 'text-gray-500 hover:text-gray-600'
                 }`}
               >
-                Home
+                {t.home}
                 {isActive(`/${locale}`) && (
                   <div className="absolute bottom-[-8px] left-0 w-full h-[1px] bg-black"></div>
                 )}
@@ -71,7 +95,7 @@ export function NavbarClient({ locale = 'en' }: NavbarClientProps) {
                     : 'text-gray-500 hover:text-gray-600'
                 }`}
               >
-                About
+                {t.about}
                 {isActive(`/${locale}/about`) && (
                   <div className="absolute bottom-[-8px] left-0 w-full h-[1px] bg-black"></div>
                 )}
@@ -84,7 +108,7 @@ export function NavbarClient({ locale = 'en' }: NavbarClientProps) {
                     : 'text-gray-500 hover:text-gray-600'
                 }`}
               >
-                Properties
+                {t.properties}
                 {isActive(`/${locale}/properties`) && (
                   <div className="absolute bottom-[-8px] left-0 w-full h-[1px] bg-black"></div>
                 )}
@@ -116,7 +140,7 @@ export function NavbarClient({ locale = 'en' }: NavbarClientProps) {
                     : 'text-gray-500 hover:text-gray-600'
                 }`}
               >
-                Contact
+                {t.contact}
                 {isActive(`/${locale}/contact`) && (
                   <div className="absolute bottom-[-8px] left-0 w-full h-[1px] bg-black"></div>
                 )}
@@ -128,7 +152,7 @@ export function NavbarClient({ locale = 'en' }: NavbarClientProps) {
                     <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
                     <path d="M2 12h20"/>
                   </svg>
-                  <span className="hidden sm:inline">{locale === 'en' ? 'Español' : 'English'}</span>
+                  <span className="hidden sm:inline">{locale === 'en' ? t.switchToSpanish : t.switchToEnglish}</span>
                   <span className="sm:hidden">{locale === 'en' ? 'ES' : 'EN'}</span>
                 </Link>
               </Button>
@@ -191,7 +215,7 @@ export function NavbarClient({ locale = 'en' }: NavbarClientProps) {
                       <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
                       <path d="M2 12h20"/>
                     </svg>
-                    <span>{locale === 'en' ? 'Cambiar a Español' : 'Switch to English'}</span>
+                    <span>{t.mobileSwitch}</span>
                   </Link>
                 </Button>
               </div>

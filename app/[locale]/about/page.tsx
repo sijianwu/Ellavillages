@@ -9,6 +9,57 @@ interface AboutPageProps {
 
 export default async function AboutPage({ params }: AboutPageProps) {
   const { locale } = await params;
+  
+  // Simple translations to avoid next-intl complexity
+  const translations = {
+    en: {
+      title: 'Ellavillages',
+      description: "Whether you're looking for a peaceful space to unwind or a stylish spot to call home, our condo units offer everything you need in a compact, charming setting.",
+      card1: {
+        category: 'MODERN WITH STYLE',
+        title: 'A Touch of Modern Happiness',
+        description: 'Look ahead to the festive seasons at Ella destinations, a three-course preparation for joy-filled celebrations.',
+        button: 'Discover more'
+      },
+      card2: {
+        category: 'CURATED BY ROYAL DIALOGUE',
+        title: 'Professional Living Programme',
+        description: 'Offered exclusively at seven Ella destinations, embark on a three-day Personalization Programme by Royal Deluxe.',
+        button: 'Discover more'
+      },
+      card3: {
+        category: 'SAFE ESCAPE',
+        title: 'Safe & Secure Living',
+        description: 'In partnership with local security, enjoy a secure haven designed for worry-free living.',
+        button: 'Discover more'
+      }
+    },
+    es: {
+      title: 'Ellavillages',
+      description: 'Ya sea que busques un espacio tranquilo para relajarte o un lugar elegante para llamar hogar, nuestras unidades de condominio ofrecen todo lo que necesitas en un entorno compacto y encantador.',
+      card1: {
+        category: 'MODERNO CON ESTILO',
+        title: 'Un Toque de Felicidad Moderna',
+        description: 'Mira hacia adelante a las temporadas festivas en los destinos de Ella, una preparación de tres cursos para celebraciones llenas de alegría.',
+        button: 'Descubre más'
+      },
+      card2: {
+        category: 'CURADO POR DIÁLOGO REAL',
+        title: 'Programa de Vida Profesional',
+        description: 'Ofrecido exclusivamente en siete destinos de Ella, embárcate en un Programa de Personalización de tres días por Royal Deluxe.',
+        button: 'Descubre más'
+      },
+      card3: {
+        category: 'ESCAPE SEGURO',
+        title: 'Vida Segura y Protegida',
+        description: 'En asociación con la seguridad local, disfruta de un refugio seguro diseñado para una vida sin preocupaciones.',
+        button: 'Descubre más'
+      }
+    }
+  };
+
+  const t = translations[locale as keyof typeof translations] || translations.en;
+  
   return (
     <main className="min-h-screen">
       <NavbarClient locale={locale} />
@@ -19,10 +70,10 @@ export default async function AboutPage({ params }: AboutPageProps) {
             {/* Left Content Area */}
             <div className="lg:col-span-2 space-y-6">
               <h1 className="text-[38px] font-serif font-normal text-black leading-[42px] mb-4">
-                Ellavillages
+                {t.title}
               </h1>
               <p className="text-gray-600 leading-relaxed text-sm max-w-xs">
-                Whether you're looking for a peaceful space to unwind or a stylish spot to call home, our condo units offer everything you need in a compact, charming setting.
+                {t.description}
               </p>
             </div>
 
@@ -38,16 +89,15 @@ export default async function AboutPage({ params }: AboutPageProps) {
                   />
                 </div>
                 <div className="space-y-2">
-                  <p className="text-xs text-gray-500 uppercase tracking-wider">MODERN WITH STYLE</p>
+                  <p className="text-xs text-gray-500 uppercase tracking-wider">{t.card1.category}</p>
                   <h3 className="font-medium text-gray-900 text-sm">
-                    A Touch of Modern Happiness
+                    {t.card1.title}
                   </h3>
                   <p className="text-xs text-gray-600 leading-relaxed">
-                    Look ahead to the festive seasons at Ella destinations, 
-                    a three-course preparation for joy-filled celebrations.
+                    {t.card1.description}
                   </p>
                   <button className="text-xs text-gray-900 hover:underline">
-                    Discover more
+                    {t.card1.button}
                   </button>
                 </div>
               </div>
@@ -62,16 +112,15 @@ export default async function AboutPage({ params }: AboutPageProps) {
                   />
                 </div>
                 <div className="space-y-2">
-                  <p className="text-xs text-gray-500 uppercase tracking-wider">CURATED BY ROYAL DIALOGUE</p>
+                  <p className="text-xs text-gray-500 uppercase tracking-wider">{t.card2.category}</p>
                   <h3 className="font-medium text-gray-900 text-sm">
-                    Professional Living Programme
+                    {t.card2.title}
                   </h3>
                   <p className="text-xs text-gray-600 leading-relaxed">
-                    Offered exclusively at seven Ella destinations, 
-                    embark on a three-day Personalization Programme by Royal Deluxe.
+                    {t.card2.description}
                   </p>
                   <button className="text-xs text-gray-900 hover:underline">
-                    Discover more
+                    {t.card2.button}
                   </button>
                 </div>
               </div>
@@ -86,16 +135,15 @@ export default async function AboutPage({ params }: AboutPageProps) {
                   />
                 </div>
                 <div className="space-y-2">
-                  <p className="text-xs text-gray-500 uppercase tracking-wider">SAFE ESCAPE</p>
+                  <p className="text-xs text-gray-500 uppercase tracking-wider">{t.card3.category}</p>
                   <h3 className="font-medium text-gray-900 text-sm">
-                    Safe & Secure Living
+                    {t.card3.title}
                   </h3>
                   <p className="text-xs text-gray-600 leading-relaxed">
-                    In partnership with local security, 
-                    enjoy a secure haven designed for worry-free living.
+                    {t.card3.description}
                   </p>
                   <button className="text-xs text-gray-900 hover:underline">
-                    Discover more
+                    {t.card3.button}
                   </button>
                 </div>
               </div>

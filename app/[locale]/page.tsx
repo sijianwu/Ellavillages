@@ -16,6 +16,19 @@ interface HomePageProps {
 
 export default async function HomePage({ params }: HomePageProps) {
   const { locale } = await params;
+
+  // Hero section translations
+  const heroTranslations = {
+    en: {
+      description: "Modern, cozy condos in safe neighborhoods."
+    },
+    es: {
+      description: "Condominios modernos y acogedores en vecindarios seguros."
+    }
+  };
+
+  const t = heroTranslations[locale as keyof typeof heroTranslations] || heroTranslations.en;
+
   return (
     <main className="min-h-screen">
       <NavbarClient locale={locale} />
@@ -38,7 +51,7 @@ export default async function HomePage({ params }: HomePageProps) {
                   />
                 </div>
                 <p className="text-sm font-medium text-gray-600 uppercase tracking-wide font-poppins">
-                  Modern, cozy condos in safe neighborhoods.
+                  {t.description}
                 </p>
               </div>
             </div>
@@ -97,16 +110,16 @@ export default async function HomePage({ params }: HomePageProps) {
       </div>
       
       {/* Where Comfort Meets Convenience Section */}
-      <ComfortConvenienceAnimated />
+      <ComfortConvenienceAnimated locale={locale} />
       
       {/* Community Features Section */}
-      <CommunityFeaturesAnimated />
+      <CommunityFeaturesAnimated locale={locale} />
       
       {/* Properties Section */}
-      <PropertyGrid />
+      <PropertyGrid locale={locale} />
       
       {/* Contact Section */}
-      <ContactPanelSSR />
+      <ContactPanelSSR locale={locale} />
       
       {/* Footer */}
       <FooterSSR locale={locale} />

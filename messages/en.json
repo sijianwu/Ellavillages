@@ -42,12 +42,41 @@
     "available": "Available"
   },
   "contact": {
-    "title": "Contact",
+    "title": "Get in Touch",
     "phone": "Phone",
     "email": "Email",
-    "address": "Address",
-    "phoneNumber": "+1 346 268 2140",
-    "emailAddress": "ellavillages@gmail.com",
-    "fullAddress": "5420 Eglinton St, Houston, TX 77026"
+    "location": "Location",
+    "phoneNumber": "+1 832 228 2749",
+    "phoneDesc": "Call us for immediate assistance",
+    "emailAddress": "ellawelcomeyou@ellavillages.com",
+    "emailDesc": "Send us an email anytime",
+    "fullAddress": "5420 Elysian St, Houston, TX, 77009",
+    "locationDesc": "Visit our office",
+    "description": "Ready to find your new home? Have questions about our properties? We'd love to hear from you."
+  },
+  "about": {
+    "title": "Ellavillages",
+    "description": "Whether you're looking for a peaceful space to unwind or a stylish spot to call home, our condo units offer everything you need in a compact, charming setting.",
+    "card1": {
+      "category": "MODERN WITH STYLE",
+      "title": "A Touch of Modern Happiness",
+      "description": "Look ahead to the festive seasons at Ella destinations, a three-course preparation for joy-filled celebrations.",
+      "button": "Discover more"
+    },
+    "card2": {
+      "category": "CURATED BY ROYAL DIALOGUE",
+      "title": "Professional Living Programme",
+      "description": "Offered exclusively at seven Ella destinations, embark on a three-day Personalization Programme by Royal Deluxe.",
+      "button": "Discover more"
+    },
+    "card3": {
+      "category": "SAFE ESCAPE",
+      "title": "Safe & Secure Living",
+      "description": "In partnership with local security, enjoy a secure haven designed for worry-free living.",
+      "button": "Discover more"
+    }
+  },
+  "floatingButton": {
+    "sendMessage": "Send us a Message"
   }
 }

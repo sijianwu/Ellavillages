@@ -2,29 +2,81 @@
 
 import { motion } from 'framer-motion';
 
-export function CommunityFeaturesAnimated() {
+interface CommunityFeaturesAnimatedProps {
+  locale?: string;
+}
+
+export function CommunityFeaturesAnimated({ locale = 'en' }: CommunityFeaturesAnimatedProps) {
+  // Translations
+  const translations = {
+    en: {
+      title: "Community",
+      features: [
+        {
+          title: "Modern",
+          description: "Smart use of space with modern layouts"
+        },
+        {
+          title: "Quiet",
+          description: "Quiet, safe neighborhood"
+        },
+        {
+          title: "Convenient",
+          description: "Close to shops, cafes, and public transport"
+        },
+        {
+          title: "Long-term",
+          description: "Ideal for long-term stays"
+        }
+      ]
+    },
+    es: {
+      title: "Comunidad",
+      features: [
+        {
+          title: "Moderno",
+          description: "Uso inteligente del espacio con diseños modernos"
+        },
+        {
+          title: "Tranquilo",
+          description: "Vecindario tranquilo y seguro"
+        },
+        {
+          title: "Conveniente",
+          description: "Cerca de tiendas, cafés y transporte público"
+        },
+        {
+          title: "Largo plazo",
+          description: "Ideal para estancias de largo plazo"
+        }
+      ]
+    }
+  };
+
+  const t = translations[locale as keyof typeof translations] || translations.en;
+
   const features = [
     {
-      title: "Modern",
-      description: "Smart use of space with modern layouts",
+      title: t.features[0].title,
+      description: t.features[0].description,
       image: "/assets/images/modern-living.jpg",
       icon: "/assets/images/icon-modern.svg"
     },
     {
-      title: "Quiet",
-      description: "Quiet, safe neighborhood",
+      title: t.features[1].title,
+      description: t.features[1].description,
       image: "/assets/images/quiet-dining.jpg",
       icon: "/assets/images/icon-quiet.svg"
     },
     {
-      title: "Convenient",
-      description: "Close to shops, cafes, and public transport",
+      title: t.features[2].title,
+      description: t.features[2].description,
       image: "/assets/images/convenient-living.jpg",
       icon: "/assets/images/icon-convenient.svg"
     },
     {
-      title: "Long-term",
-      description: "Ideal for long-term stays",
+      title: t.features[3].title,
+      description: t.features[3].description,
       image: "/assets/images/longterm-living.jpg",
       icon: "/assets/images/icon-longterm.svg"
     }
@@ -36,7 +88,7 @@ export function CommunityFeaturesAnimated() {
         {/* Title */}
         <div className="text-center mb-16">
           <h2 className="text-[38px] font-serif font-normal text-black leading-[42px] mb-6">
-            Community
+            {t.title}
           </h2>
         </div>
 

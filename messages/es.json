@@ -42,12 +42,41 @@
     "available": "Disponible"
   },
   "contact": {
-    "title": "Contacto",
+    "title": "Ponte en Contacto",
     "phone": "Teléfono",
     "email": "Correo",
-    "address": "Dirección",
-    "phoneNumber": "+1 346 268 2140",
-    "emailAddress": "ellavillages@gmail.com",
-    "fullAddress": "5420 Eglinton St, Houston, TX 77026"
+    "location": "Ubicación",
+    "phoneNumber": "+1 832 228 2749",
+    "phoneDesc": "Llámanos para asistencia inmediata",
+    "emailAddress": "ellawelcomeyou@ellavillages.com",
+    "emailDesc": "Envíanos un correo en cualquier momento",
+    "fullAddress": "5420 Elysian St, Houston, TX, 77009",
+    "locationDesc": "Visita nuestra oficina",
+    "description": "¿Listo para encontrar tu nuevo hogar? ¿Tienes preguntas sobre nuestras propiedades? Nos encantaría escucharte."
+  },
+  "about": {
+    "title": "Ellavillages",
+    "description": "Ya sea que busques un espacio tranquilo para relajarte o un lugar elegante para llamar hogar, nuestras unidades de condominio ofrecen todo lo que necesitas en un entorno compacto y encantador.",
+    "card1": {
+      "category": "MODERNO CON ESTILO",
+      "title": "Un Toque de Felicidad Moderna",
+      "description": "Mira hacia adelante a las temporadas festivas en los destinos de Ella, una preparación de tres cursos para celebraciones llenas de alegría.",
+      "button": "Descubre más"
+    },
+    "card2": {
+      "category": "CURADO POR DIÁLOGO REAL",
+      "title": "Programa de Vida Profesional",
+      "description": "Ofrecido exclusivamente en siete destinos de Ella, embárcate en un Programa de Personalización de tres días por Royal Deluxe.",
+      "button": "Descubre más"
+    },
+    "card3": {
+      "category": "ESCAPE SEGURO",
+      "title": "Vida Segura y Protegida",
+      "description": "En asociación con la seguridad local, disfruta de un refugio seguro diseñado para una vida sin preocupaciones.",
+      "button": "Descubre más"
+    }
+  },
+  "floatingButton": {
+    "sendMessage": "Envíanos un Mensaje"
   }
 }

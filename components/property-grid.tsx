@@ -4,10 +4,34 @@ import { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 
-export function PropertyGrid() {
+interface PropertyGridProps {
+  locale?: string;
+}
+
+export function PropertyGrid({ locale = 'en' }: PropertyGridProps) {
   const [selectedAddress, setSelectedAddress] = useState('5420 Elysian St');
   const [underlineStyle, setUnderlineStyle] = useState({ width: 0, left: 0 });
   const buttonRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  // Translations
+  const translations = {
+    en: {
+      title: "Properties",
+      available: "Available",
+      scheduleVisit: "Schedule Visit",
+      month: "Month",
+      monthAbbr: "M"
+    },
+    es: {
+      title: "Propiedades",
+      available: "Disponible",
+      scheduleVisit: "Programar Visita",
+      month: "Mes",
+      monthAbbr: "M"
+    }
+  };
+
+  const t = translations[locale as keyof typeof translations] || translations.en;
 
   const addresses = ['5420 Elysian St', '6688 Elysian St', '9966 Elysian St'];
 
@@ -53,7 +77,7 @@ export function PropertyGrid() {
       name: 'Unit A',
       bedrooms: 2,
       bathrooms: 2,
-      status: 'Available',
+      status: t.available,
       image: '/assets/images/unit-a.jpg'
     },
     { 
@@ -62,7 +86,7 @@ export function PropertyGrid() {
       name: 'Unit B', 
       bedrooms: 2,
       bathrooms: 2,
-      status: 'Available',
+      status: t.available,
       image: '/assets/images/unit-b.jpg'
     },
     { 
@@ -71,7 +95,7 @@ export function PropertyGrid() {
       name: 'Unit C',
       bedrooms: 2,
       bathrooms: 2,
-      status: 'Available',
+      status: t.available,
       image: '/assets/images/unit-c.jpg'
     },
     { 
@@ -80,7 +104,7 @@ export function PropertyGrid() {
       name: 'Unit D',
       bedrooms: 2,
       bathrooms: 2,
-      status: 'Available', 
+      status: t.available, 
       image: '/assets/images/unit-d.jpg'
     },
     { 
@@ -89,7 +113,7 @@ export function PropertyGrid() {
       name: 'Unit E',
       bedrooms: 2,
       bathrooms: 2,
-      status: 'Available',
+      status: t.available,
       image: '/assets/images/unit-e.jpg'
     },
     { 
@@ -98,7 +122,7 @@ export function PropertyGrid() {
       name: 'Unit F',
       bedrooms: 2,
       bathrooms: 2,
-      status: 'Available',
+      status: t.available,
       image: '/assets/images/unit-f.jpg'
     }
   ];
@@ -110,7 +134,7 @@ export function PropertyGrid() {
           {/* Section Header */}
           <div className="mb-8">
             <h2 className="text-[38px] font-serif font-normal text-black leading-[42px] mb-6">
-              Properties
+              {t.title}
             </h2>
             
             {/* Address Filter */}
@@ -159,7 +183,7 @@ export function PropertyGrid() {
                   {/* Price Badge */}
                   <div className="absolute top-3 left-3 sm:top-0 sm:left-0">
                     <div className="text-white px-3 py-1.5 sm:px-4 sm:py-2 text-sm sm:text-lg font-serif font-bold rounded-md sm:rounded-none" style={{ backgroundColor: '#92D63B' }}>
-                      {property.price}/Month
+                      {property.price}/{t.month}
                     </div>
                   </div>
                 </div>
@@ -169,7 +193,7 @@ export function PropertyGrid() {
                     {/* Property Details */}
                     <div>
                       <h3 className="text-lg sm:text-xl font-serif font-bold text-gray-900 mb-1">
-                        {property.name} &nbsp;&nbsp; {property.price}/M
+                        {property.name} &nbsp;&nbsp; {property.price}/{t.monthAbbr}
                       </h3>
                       <p className="text-xs sm:text-sm text-gray-600">
                         {property.bedrooms}B{property.bathrooms}B &nbsp;&nbsp; {property.status}
@@ -180,7 +204,7 @@ export function PropertyGrid() {
                     <Button 
                       className="w-full bg-white border border-black text-gray-900 hover:bg-black hover:text-white py-2.5 sm:py-3 transition-colors focus:outline-none font-medium text-sm sm:text-base rounded-md sm:rounded-none shadow-none active:scale-95 sm:active:scale-100"
                     >
-                      Schedule Visit
+                      {t.scheduleVisit}
                     </Button>
                   </div>
                 </CardContent>

@@ -1,24 +1,59 @@
 import { Phone, Mail, MapPin } from 'lucide-react';
 
-export function ContactPanelSSR() {
+interface ContactPanelSSRProps {
+  locale?: string;
+}
+
+export function ContactPanelSSR({ locale = 'en' }: ContactPanelSSRProps) {
+  // Simple translations object for this component
+  const translations = {
+    en: {
+      title: 'Get in Touch',
+      description: "Ready to find your new home? Have questions about our properties? We'd love to hear from you.",
+      phone: 'Phone',
+      email: 'Email',
+      location: 'Location',
+      phoneNumber: '+1 832 228 2749',
+      phoneDesc: 'Call us for immediate assistance',
+      emailAddress: 'ellawelcomeyou@ellavillages.com',
+      emailDesc: 'Send us an email anytime',
+      fullAddress: '5420 Elysian St, Houston, TX, 77009',
+      locationDesc: 'Visit our office'
+    },
+    es: {
+      title: 'Ponte en Contacto',
+      description: '¿Listo para encontrar tu nuevo hogar? ¿Tienes preguntas sobre nuestras propiedades? Nos encantaría escucharte.',
+      phone: 'Teléfono',
+      email: 'Correo',
+      location: 'Ubicación',
+      phoneNumber: '+1 832 228 2749',
+      phoneDesc: 'Llámanos para asistencia inmediata',
+      emailAddress: 'ellawelcomeyou@ellavillages.com',
+      emailDesc: 'Envíanos un correo en cualquier momento',
+      fullAddress: '5420 Elysian St, Houston, TX, 77009',
+      locationDesc: 'Visita nuestra oficina'
+    }
+  };
+
+  const t = translations[locale as keyof typeof translations] || translations.en;
   const contactInfo = [
     {
       icon: Phone,
-      title: 'Phone',
-      value: '+1 832 228 2749',
-      description: 'Call us for immediate assistance'
+      title: t.phone,
+      value: t.phoneNumber,
+      description: t.phoneDesc
     },
     {
       icon: Mail,
-      title: 'Email',
-      value: 'ellawelcomeyou@ellavillages.com',
-      description: 'Send us an email anytime'
+      title: t.email,
+      value: t.emailAddress,
+      description: t.emailDesc
     },
     {
       icon: MapPin,
-      title: 'Location',
-      value: '5420 Elysian St, Houston, TX, 77009',
-      description: 'Visit our office'
+      title: t.location,
+      value: t.fullAddress,
+      description: t.locationDesc
     }
   ];
 
@@ -28,11 +63,10 @@ export function ContactPanelSSR() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-[38px] font-serif font-normal text-black leading-[42px] mb-6">
-              Get in Touch
+              {t.title}
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Ready to find your new home? Have questions about our properties? 
-              We&apos;d love to hear from you.
+              {t.description}
             </p>
           </div>
           
