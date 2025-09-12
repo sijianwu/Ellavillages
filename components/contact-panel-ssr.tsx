@@ -36,19 +36,19 @@ export function ContactPanelSSR() {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-12">
             {contactInfo.map((item, index) => (
-              <div key={index} className="text-center p-6 bg-white">
-                <div className="flex items-center justify-center mx-auto mb-4">
-                  <item.icon className="w-8 h-8 text-gray-800" />
+              <div key={index} className="text-center md:text-center p-4 md:p-6 bg-white border border-gray-100 rounded-lg md:border-none md:rounded-none hover:shadow-lg md:hover:shadow-none transition-shadow duration-200">
+                <div className="flex items-center justify-center mx-auto mb-3 md:mb-4 w-12 h-12 md:w-auto md:h-auto bg-gray-50 md:bg-transparent rounded-full md:rounded-none">
+                  <item.icon className="w-6 h-6 md:w-8 md:h-8 text-gray-800" />
                 </div>
-                <h3 className="text-lg font-serif font-semibold text-gray-900 mb-2">
+                <h3 className="text-base md:text-lg font-serif font-semibold text-gray-900 mb-2">
                   {item.title}
                 </h3>
-                <p className="text-gray-900 font-medium mb-2">
+                <p className="text-sm md:text-base text-gray-900 font-medium mb-2 break-all md:break-normal">
                   {item.value}
                 </p>
-                <p className="text-gray-600 text-sm">
+                <p className="text-xs md:text-sm text-gray-600">
                   {item.description}
                 </p>
               </div>

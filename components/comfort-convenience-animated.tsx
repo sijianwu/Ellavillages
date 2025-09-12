@@ -26,7 +26,7 @@ export function ComfortConvenienceAnimated() {
               whileHover="hover"
               transition={{ duration: 1, ease: "backInOut" }}
               variants={{ hover: { scale: 1.05 } }}
-              className="relative h-80 w-[92%] sm:h-96 sm:w-80 shrink-0 overflow-hidden rounded-tl-[60px] rounded-tr-xl rounded-bl-xl rounded-br-xl p-6 sm:p-8 bg-gradient-to-br from-blue-500 to-purple-600 shadow-lg hover:shadow-xl transition-shadow mx-auto"
+              className="relative h-[380px] w-[340px] sm:h-96 sm:w-80 shrink-0 overflow-hidden rounded-tl-[60px] rounded-tr-xl rounded-bl-xl rounded-br-xl p-6 sm:p-8 bg-gradient-to-br from-blue-500 to-purple-600 shadow-lg hover:shadow-xl transition-shadow mx-auto"
             >
               <div className="relative z-10 text-white flex flex-col h-full">
                 <span className="mb-4 block w-fit rounded-full bg-white/20 backdrop-blur-sm px-3 py-0.5 text-sm font-medium text-white border border-white/20">
@@ -36,7 +36,7 @@ export function ComfortConvenienceAnimated() {
                   initial={{ scale: 0.85 }}
                   variants={{ hover: { scale: 1 } }}
                   transition={{ duration: 1, ease: "backInOut" }}
-                  className="mb-4 block origin-top-left font-serif text-3xl sm:text-4xl lg:text-[46px] font-normal leading-[0.9]"
+                  className="mb-4 block origin-top-left font-serif text-4xl sm:text-4xl lg:text-[46px] font-normal leading-[0.9]"
                 >
                   $1600<br />Month
                 </motion.span>
@@ -87,7 +87,7 @@ export function ComfortConvenienceAnimated() {
               whileHover="hover"
               transition={{ duration: 1, ease: "backInOut" }}
               variants={{ hover: { scale: 1.05 } }}
-              className="relative h-80 w-[92%] sm:h-96 sm:w-80 shrink-0 overflow-hidden rounded-tl-[60px] rounded-tr-xl rounded-bl-xl rounded-br-xl p-6 sm:p-8 bg-gradient-to-br from-purple-500 to-pink-600 shadow-lg hover:shadow-xl transition-shadow mx-auto"
+              className="relative h-[380px] w-[340px] sm:h-96 sm:w-80 shrink-0 overflow-hidden rounded-tl-[60px] rounded-tr-xl rounded-bl-xl rounded-br-xl p-6 sm:p-8 bg-gradient-to-br from-purple-500 to-pink-600 shadow-lg hover:shadow-xl transition-shadow mx-auto"
             >
               <div className="relative z-10 text-white flex flex-col h-full">
                 <span className="mb-4 block w-fit rounded-full bg-white/20 backdrop-blur-sm px-3 py-0.5 text-sm font-medium text-white border border-white/20">
@@ -97,7 +97,7 @@ export function ComfortConvenienceAnimated() {
                   initial={{ scale: 0.85 }}
                   variants={{ hover: { scale: 1 } }}
                   transition={{ duration: 1, ease: "backInOut" }}
-                  className="mb-4 block origin-top-left font-serif text-3xl sm:text-4xl lg:text-[46px] font-normal leading-[0.9]"
+                  className="mb-4 block origin-top-left font-serif text-4xl sm:text-4xl lg:text-[46px] font-normal leading-[0.9]"
                 >
                   $1800<br />Month
                 </motion.span>

@@ -50,7 +50,7 @@ export function CommunityFeaturesAnimated() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
               whileHover={{ y: -5 }}
-              className="bg-[#F7F8EF] overflow-hidden transition-transform duration-300 relative aspect-[4/5] w-full max-w-sm mx-auto"
+              className="bg-[#F7F8EF] overflow-hidden transition-transform duration-300 relative aspect-[4/5] lg:aspect-[2/3] xl:aspect-[4/5] w-full max-w-sm mx-auto"
             >
               {/* Image */}
               <div className="relative aspect-[4/3] overflow-hidden">
@@ -62,11 +62,11 @@ export function CommunityFeaturesAnimated() {
               </div>
 
               {/* Content */}
-              <div className="p-4 sm:p-6 pb-4 sm:pb-8">
-                <h3 className="text-xl font-serif font-bold text-gray-900 mb-2">
+              <div className="p-4 sm:p-6 lg:p-4 xl:p-6 pb-8 sm:pb-10 lg:pb-8 xl:pb-10">
+                <h3 className="text-lg sm:text-xl lg:text-lg xl:text-xl font-serif font-bold text-gray-900 mb-2">
                   {feature.title}
                 </h3>
-                <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
+                <p className="text-gray-600 text-xs sm:text-sm lg:text-xs xl:text-sm leading-relaxed">
                   {feature.description}
                 </p>
               </div>
