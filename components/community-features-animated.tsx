@@ -41,7 +41,7 @@ export function CommunityFeaturesAnimated() {
         </div>
 
         {/* Feature Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {features.map((feature, index) => (
             <motion.div
               key={feature.title}
@@ -50,10 +50,10 @@ export function CommunityFeaturesAnimated() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
               whileHover={{ y: -5 }}
-              className="bg-[#F7F8EF] overflow-hidden transition-transform duration-300 relative aspect-[4/5] max-w-sm mx-auto"
+              className="bg-[#F7F8EF] overflow-hidden transition-transform duration-300 relative aspect-[4/5] w-full max-w-sm mx-auto"
             >
               {/* Image */}
-              <div className="relative h-48 sm:h-52 overflow-hidden">
+              <div className="relative aspect-[4/3] overflow-hidden">
                 <img
                   src={feature.image}
                   alt={feature.title}
@@ -62,21 +62,21 @@ export function CommunityFeaturesAnimated() {
               </div>
 
               {/* Content */}
-              <div className="p-6 pb-12">
+              <div className="p-4 sm:p-6 pb-4 sm:pb-8">
                 <h3 className="text-xl font-serif font-bold text-gray-900 mb-2">
                   {feature.title}
                 </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
+                <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
                   {feature.description}
                 </p>
               </div>
               
               {/* Icon */}
-              <div className="absolute bottom-4 right-4">
+              <div className="absolute bottom-2 right-3 sm:bottom-3 sm:right-4">
                 <img 
                   src={feature.icon} 
                   alt={`${feature.title} icon`}
-                  className="w-8 h-8 opacity-70"
+                  className="w-6 h-6 sm:w-8 sm:h-8 opacity-70"
                 />
               </div>
             </motion.div>
