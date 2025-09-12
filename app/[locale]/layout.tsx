@@ -5,6 +5,7 @@ import { ThemeProvider } from "next-themes";
 // import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 // import { GlobalNavbar } from '@/components/global-navbar';
+import { FloatingContactButton } from '@/components/floating-contact-button-fixed';
 
 
  
@@ -68,6 +69,7 @@ export default async function LocaleLayout({
       disableTransitionOnChange
     >
       {children}
+      <FloatingContactButton locale={locale} />
     </ThemeProvider>
   );
 }
