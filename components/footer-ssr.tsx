@@ -21,7 +21,7 @@ export function FooterSSR({ locale = 'en' }: FooterSSRProps) {
       contact: 'Contact',
       language: 'English',
       'footer.description': 'Modern, cozy condos in safe neighborhoods with reasonable rent.',
-      'footer.rights': '© 2024 Ellavillages. All rights reserved.',
+      'footer.rights': '© 2025 Ellavillages. All rights reserved.',
     },
     es: {
       home: 'Inicio',
@@ -30,7 +30,7 @@ export function FooterSSR({ locale = 'en' }: FooterSSRProps) {
       contact: 'Contacto',
       language: 'Español',
       'footer.description': 'Condominios modernos y acogedores en vecindarios seguros con alquiler razonable.',
-      'footer.rights': '© 2024 Ellavillages. Todos los derechos reservados.',
+      'footer.rights': '© 2025 Ellavillages. Todos los derechos reservados.',
     }
   };
 
@@ -42,15 +42,14 @@ export function FooterSSR({ locale = 'en' }: FooterSSRProps) {
         <div className="grid md:grid-cols-4 gap-8">
           {/* Logo and Description */}
           <div className="md:col-span-2">
-            <div className="flex items-center mb-4">
+            <div className="mb-4">
               <Image
-                src="/assets/images/navbar_logo.svg"
+                src="/assets/images/footer_logo.svg"
                 alt="Ellavillages"
-                width={40}
+                width={120}
                 height={40}
-                className="w-10 h-10 mr-3"
+                className="w-30 h-10"
               />
-              <span className="text-xl font-bold">Ellavillages</span>
             </div>
             <p className="text-gray-400 mb-6 max-w-md">
               {t['footer.description']}
@@ -59,7 +58,7 @@ export function FooterSSR({ locale = 'en' }: FooterSSRProps) {
 
           {/* Navigation */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Navigation</h3>
+            <h3 className="text-lg font-serif font-semibold mb-4">Navigation</h3>
             <nav className="space-y-2">
               {navItems.map((item) => (
                 <Link
@@ -75,11 +74,11 @@ export function FooterSSR({ locale = 'en' }: FooterSSRProps) {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Contact</h3>
+            <h3 className="text-lg font-serif font-semibold mb-4">Contact</h3>
             <div className="space-y-2 text-gray-400">
               <p>Houston, TX</p>
-              <p>Phone: (346) 268-2140</p>
-              <p>Email: info@ellavillages.com</p>
+              <p>Phone: +1 832 228 2749</p>
+              <p>Email: ellawelcomeyou@ellavillages.com</p>
             </div>
           </div>
         </div>

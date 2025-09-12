@@ -6,7 +6,7 @@ export function IntroSSR() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <div className="space-y-6">
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
+              <h2 className="text-[38px] font-serif font-normal text-black leading-[42px] mb-6">
                 Welcome to Ellavillages
               </h2>
               <p className="text-lg text-gray-600 leading-relaxed">

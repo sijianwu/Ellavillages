@@ -5,29 +5,29 @@ export function ContactPanelSSR() {
     {
       icon: Phone,
       title: 'Phone',
-      value: '(346) 268-2140',
+      value: '+1 832 228 2749',
       description: 'Call us for immediate assistance'
     },
     {
       icon: Mail,
       title: 'Email',
-      value: 'info@ellavillages.com',
+      value: 'ellawelcomeyou@ellavillages.com',
       description: 'Send us an email anytime'
     },
     {
       icon: MapPin,
       title: 'Location',
-      value: 'Houston, TX',
+      value: '5420 Elysian St, Houston, TX, 77009',
       description: 'Visit our office'
     }
   ];
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            <h2 className="text-[38px] font-serif font-normal text-black leading-[42px] mb-6">
               Get in Touch
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
@@ -36,13 +36,13 @@ export function ContactPanelSSR() {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-12">
             {contactInfo.map((item, index) => (
-              <div key={index} className="text-center p-6 bg-white rounded-lg shadow-sm">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <item.icon className="w-6 h-6 text-blue-600" />
+              <div key={index} className="text-center p-6 bg-white">
+                <div className="flex items-center justify-center mx-auto mb-4">
+                  <item.icon className="w-8 h-8 text-gray-800" />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                <h3 className="text-lg font-serif font-semibold text-gray-900 mb-2">
                   {item.title}
                 </h3>
                 <p className="text-gray-900 font-medium mb-2">

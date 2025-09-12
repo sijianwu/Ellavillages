@@ -17,7 +17,7 @@ export default async function PropertiesPage({ params }: PropertiesPageProps) {
       <section className="pt-24 pb-8">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="text-[38px] font-serif font-normal text-black leading-[42px] mb-6">
               Our Properties
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">

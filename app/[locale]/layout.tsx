@@ -7,7 +7,9 @@ import { notFound } from 'next/navigation';
 // import { GlobalNavbar } from '@/components/global-navbar';
 
 
- import "../globals.css";
+ 
+
+import "../globals.css";
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
