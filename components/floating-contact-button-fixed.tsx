@@ -31,6 +31,13 @@ export function FloatingContactButton({ locale = 'en' }: FloatingContactButtonPr
 
   const buttonText = messages[currentLocale as keyof typeof messages];
 
+  // Hide button on contact page
+  const isContactPage = pathname.includes('/contact');
+
+  if (isContactPage) {
+    return null;
+  }
+
   return (
     <div className="fixed bottom-6 right-6 z-50">
       <div 
