@@ -22,8 +22,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
                 Ellavillages
               </h1>
               <p className="text-gray-600 leading-relaxed text-sm max-w-xs">
-                Across the rental world, discover new and noteworthy experiences 
-                that provide an authentic connection to the soul of a place.
+                Whether you're looking for a peaceful space to unwind or a stylish spot to call home, our condo units offer everything you need in a compact, charming setting.
               </p>
             </div>
 
@@ -33,7 +32,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
               <div className="group cursor-pointer">
                 <div className="aspect-[4/5] mb-4 overflow-hidden">
                   <img 
-                    src="/assets/images/unit-a.jpg" 
+                    src="/assets/images/unit-about01.jpg" 
                     alt="Modern Living"
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
@@ -57,7 +56,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
               <div className="group cursor-pointer">
                 <div className="aspect-[4/5] mb-4 overflow-hidden">
                   <img 
-                    src="/assets/images/unit-e.jpg" 
+                    src="/assets/images/unit-about02.jpg" 
                     alt="Professional Living"
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
@@ -81,7 +80,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
               <div className="group cursor-pointer">
                 <div className="aspect-[4/5] mb-4 overflow-hidden">
                   <img 
-                    src="/assets/images/unit-c.jpg" 
+                    src="/assets/images/unit-about03.jpg" 
                     alt="Safe Environment"
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
