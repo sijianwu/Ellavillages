@@ -14,6 +14,9 @@ interface NavbarClientProps {
 export function NavbarClient({ locale = 'en' }: NavbarClientProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  
+  // Get current path without locale
+  const currentPath = pathname.replace(`/${locale}`, '') || '/';
 
   // Translations for navigation items
   const translations = {
@@ -146,7 +149,7 @@ export function NavbarClient({ locale = 'en' }: NavbarClientProps) {
                 )}
               </Link>
               <Button asChild variant="default" className="bg-black text-white hover:bg-gray-800 rounded-none text-xs md:text-sm px-3 md:px-4 py-2">
-                <Link href={locale === 'en' ? '/es' : '/en'} className="flex items-center space-x-1">
+                <Link href={locale === 'en' ? `/es${currentPath}` : `/en${currentPath}`} className="flex items-center space-x-1">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="md:w-4 md:h-4">
                     <circle cx="12" cy="12" r="10"/>
                     <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
@@ -206,7 +209,7 @@ export function NavbarClient({ locale = 'en' }: NavbarClientProps) {
               <div className="p-4 border-t">
                 <Button asChild variant="default" className="w-full bg-black text-white hover:bg-gray-800 rounded-none">
                   <Link 
-                    href={locale === 'en' ? '/es' : '/en'} 
+                    href={locale === 'en' ? `/es${currentPath}` : `/en${currentPath}`} 
                     className="flex items-center justify-center space-x-1"
                     onClick={closeMobileMenu}
                   >

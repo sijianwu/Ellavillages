@@ -1,6 +1,7 @@
 import createMiddleware from 'next-intl/middleware';
+import { NextRequest, NextResponse } from 'next/server';
 
-export default createMiddleware({
+const intlMiddleware = createMiddleware({
   // A list of all locales that are supported
   locales: ['en', 'es'],
   
@@ -8,7 +9,20 @@ export default createMiddleware({
   defaultLocale: 'en'
 });
 
+export default function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl;
+  
+  // Handle asset requests - rewrite locale-prefixed asset URLs to non-prefixed ones
+  if (pathname.match(/^\/(en|es)\/assets\//)) {
+    const assetPath = pathname.replace(/^\/(en|es)/, '');
+    return NextResponse.rewrite(new URL(assetPath, request.url));
+  }
+  
+  // For all other requests, use the internationalization middleware
+  return intlMiddleware(request);
+}
+
 export const config = {
-  // Match only internationalized pathnames
-  matcher: ['/', '/(en|es)/:path*']
+  // Match all paths except Next.js internals
+  matcher: ['/((?!_next|api|favicon.ico).*)',]
 };

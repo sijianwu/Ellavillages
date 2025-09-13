@@ -78,5 +78,15 @@
   },
   "floatingButton": {
     "sendMessage": "Envíanos un Mensaje"
+  },
+  "contactForm": {
+    "title": "Envíanos un Mensaje",
+    "fullName": "Nombre Completo",
+    "phoneNumber": "Número de Teléfono",
+    "message": "Mensaje",
+    "fullNamePlaceholder": "Tu nombre completo",
+    "phonePlaceholder": "(555) 123-4567",
+    "messagePlaceholder": "Cuéntanos sobre lo que estás buscando, fecha de mudanza preferida, o cualquier pregunta que tengas...",
+    "sendMessage": "Enviar Mensaje"
   }
 }

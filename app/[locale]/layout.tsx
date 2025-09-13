@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 // import { Geist } from "next/font/google";
 import { ThemeProvider } from "next-themes";
-// import { NextIntlClientProvider } from 'next-intl';
-// import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 // import { GlobalNavbar } from '@/components/global-navbar';
 import { FloatingContactButton } from '@/components/floating-contact-button-fixed';
@@ -57,9 +55,6 @@ export default async function LocaleLayout({
   if (!locales.includes(locale)) {
     notFound();
   }
-
-  // Temporarily disabled internationalization
-  // const messages = {};
 
   return (
     <ThemeProvider

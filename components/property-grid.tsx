@@ -151,7 +151,7 @@ export function PropertyGrid({ locale = 'en' }: PropertyGridProps) {
               {addresses.map((address, index) => (
                 <button
                   key={address}
-                  ref={(el) => (buttonRefs.current[index] = el)}
+                  ref={(el) => { buttonRefs.current[index] = el; }}
                   onClick={() => handleAddressClick(address)}
                   className={`text-xs sm:text-sm font-medium transition-all duration-200 px-2 py-2 sm:px-0 sm:py-0 rounded-lg sm:rounded-none border sm:border-none text-center ${
                     selectedAddress === address

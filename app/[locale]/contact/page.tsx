@@ -2,9 +2,8 @@ import { NavbarClient } from '@/components/navbar-client';
 import { ContactPanelSSR } from '@/components/contact-panel-ssr';
 import { FooterSSR } from '@/components/footer-ssr';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
-
 interface ContactPageProps {
   params: {
     locale: string;
@@ -23,7 +22,7 @@ export default async function ContactPage({ params }: ContactPageProps) {
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h1 className="text-[38px] font-serif font-normal text-black leading-[42px] mb-6">
-                Send us a Message
+Send us a Message
               </h1>
             </div>
             
@@ -70,7 +69,7 @@ export default async function ContactPage({ params }: ContactPageProps) {
                         required
                         rows={4}
                         className="flex min-h-[80px] w-full rounded-md border border-gray-200 bg-white px-3 py-2 text-sm placeholder:text-gray-500 focus:outline-none focus:border-gray-500 disabled:cursor-not-allowed disabled:opacity-50 resize-vertical"
-                        placeholder="Tell us about what you&apos;re looking for, preferred move-in date, or any questions you have..."
+                        placeholder="Tell us about what you're looking for, preferred move-in date, or any questions you have..."
                       />
                     </div>
                     

@@ -15,7 +15,7 @@ export default async function PropertiesPage({ params }: PropertiesPageProps) {
       <NavbarClient locale={locale} />
       
       <section className="pt-40 pb-40">
-        <PropertyGrid />
+        <PropertyGrid locale={locale} />
       </section>
       
       <FooterSSR locale={locale} />

@@ -78,5 +78,15 @@
   },
   "floatingButton": {
     "sendMessage": "Send us a Message"
+  },
+  "contactForm": {
+    "title": "Send us a Message",
+    "fullName": "Full Name",
+    "phoneNumber": "Phone Number",
+    "message": "Message",
+    "fullNamePlaceholder": "Your full name",
+    "phonePlaceholder": "(555) 123-4567",
+    "messagePlaceholder": "Tell us about what you're looking for, preferred move-in date, or any questions you have...",
+    "sendMessage": "Send Message"
   }
 }
