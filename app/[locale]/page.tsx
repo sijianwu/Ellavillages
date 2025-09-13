@@ -42,7 +42,7 @@ export default async function HomePage({ params }: HomePageProps) {
               <div className="max-w-4xl">
                 <div className="mb-6">
                   <Image
-                    src="/assets/images/hero-title.svg"
+                    src={`/assets/images/hero-title${locale === 'es' ? '-es' : ''}.svg`}
                     alt="Discover Easy Living With Reasonable Rent"
                     width={600}
                     height={200}
