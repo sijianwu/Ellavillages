@@ -79,6 +79,8 @@ export default async function HomePage({ params }: HomePageProps) {
                     width={600}
                     height={290}
                     className="w-full h-full object-cover"
+                    loading="lazy"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                 </div>
                 
@@ -90,6 +92,8 @@ export default async function HomePage({ params }: HomePageProps) {
                     width={600}
                     height={600}
                     className="w-full h-full object-cover"
+                    loading="lazy"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                 </div>
                 
@@ -101,6 +105,8 @@ export default async function HomePage({ params }: HomePageProps) {
                     width={600}
                     height={290}
                     className="w-full h-full object-cover"
+                    loading="lazy"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                 </div>
               </div>
