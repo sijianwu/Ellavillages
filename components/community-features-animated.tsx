@@ -128,7 +128,7 @@ export function CommunityFeaturesAnimated({ locale = 'en' }: CommunityFeaturesAn
                 <img 
                   src={feature.icon} 
                   alt={`${feature.title} icon`}
-                  className="w-6 h-6 sm:w-8 sm:h-8 opacity-70"
+                  className="w-8 h-8 sm:w-10 sm:h-10 opacity-70"
                 />
               </div>
             </motion.div>
