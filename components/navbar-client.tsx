@@ -171,7 +171,7 @@ export function NavbarClient({ locale = 'en' }: NavbarClientProps) {
           <div className="fixed top-0 left-0 w-80 h-full bg-white shadow-lg transform transition-transform duration-300">
             <div className="flex flex-col h-full">
               {/* Mobile Menu Header */}
-              <div className="flex items-center justify-between p-4 border-b">
+              <div className="flex items-center justify-between p-4">
                 <Image
                   src="/assets/images/navbar_logo.svg"
                   alt="Ellavillages"
@@ -205,23 +205,6 @@ export function NavbarClient({ locale = 'en' }: NavbarClientProps) {
                 ))}
               </div>
 
-              {/* Mobile Language Toggle */}
-              <div className="p-4 border-t">
-                <Button asChild variant="default" className="w-full bg-black text-white hover:bg-gray-800 rounded-none">
-                  <Link 
-                    href={locale === 'en' ? `/es${currentPath}` : `/en${currentPath}`} 
-                    className="flex items-center justify-center space-x-1"
-                    onClick={closeMobileMenu}
-                  >
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <circle cx="12" cy="12" r="10"/>
-                      <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
-                      <path d="M2 12h20"/>
-                    </svg>
-                    <span>{t.mobileSwitch}</span>
-                  </Link>
-                </Button>
-              </div>
             </div>
           </div>
         </div>

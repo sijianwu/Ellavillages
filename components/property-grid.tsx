@@ -170,7 +170,7 @@ export function PropertyGrid({ locale = 'en' }: PropertyGridProps) {
             {properties.map((property) => (
               <Card 
                 key={property.id}
-                className="group overflow-hidden border-0 shadow-md sm:shadow-none hover:shadow-lg transition-all duration-300 bg-white rounded-lg sm:rounded-none"
+                className="group overflow-hidden border-0 shadow-md sm:shadow-none hover:shadow-lg transition-all duration-300 bg-white rounded-none sm:rounded-none"
               >
                 {/* Property Image */}
                 <div className="relative aspect-[4/3] overflow-hidden">
@@ -182,7 +182,7 @@ export function PropertyGrid({ locale = 'en' }: PropertyGridProps) {
                   
                   {/* Price Badge */}
                   <div className="absolute top-3 left-3 sm:top-0 sm:left-0">
-                    <div className="text-white px-3 py-1.5 sm:px-4 sm:py-2 text-sm sm:text-lg font-serif font-bold rounded-md sm:rounded-none" style={{ backgroundColor: '#92D63B' }}>
+                    <div className="text-white px-3 py-1.5 sm:px-4 sm:py-2 text-sm sm:text-lg font-serif font-bold rounded-none sm:rounded-none" style={{ backgroundColor: '#92D63B' }}>
                       {property.price}/{t.month}
                     </div>
                   </div>
@@ -202,7 +202,7 @@ export function PropertyGrid({ locale = 'en' }: PropertyGridProps) {
 
                     {/* Action Button */}
                     <Button 
-                      className="w-full bg-white border border-black text-gray-900 hover:bg-black hover:text-white py-2.5 sm:py-3 transition-colors focus:outline-none font-medium text-sm sm:text-base rounded-md sm:rounded-none shadow-none active:scale-95 sm:active:scale-100"
+                      className="w-full bg-white border border-black text-gray-900 hover:bg-black hover:text-white py-2.5 sm:py-3 transition-colors focus:outline-none font-medium text-sm sm:text-base rounded-none sm:rounded-none shadow-none active:scale-95 sm:active:scale-100"
                     >
                       {t.scheduleVisit}
                     </Button>

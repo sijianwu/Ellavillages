@@ -56,7 +56,7 @@ export function PropertyGridSSR() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {properties.map((property) => (
-        <Card key={property.id} className="overflow-hidden hover:shadow-lg transition-shadow">
+        <Card key={property.id} className="overflow-hidden hover:shadow-lg transition-shadow !rounded-none md:!rounded-xl">
           <div className="aspect-video bg-gray-200 relative">
             <img
               src={property.image}
@@ -64,7 +64,7 @@ export function PropertyGridSSR() {
               className="w-full h-full object-cover"
             />
             <div className="absolute top-4 right-4">
-              <span className="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full">
+              <span className="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-none md:rounded-full">
                 {property.status}
               </span>
             </div>
