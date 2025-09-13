@@ -1,0 +1,105 @@
+'use client';
+
+import Image from 'next/image';
+import { useState, useRef, useEffect } from 'react';
+import { motion } from 'framer-motion';
+
+interface ProgressiveImageProps {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  className?: string;
+  priority?: boolean;
+  sizes?: string;
+  placeholder?: string;
+  quality?: number;
+}
+
+export function ProgressiveImage({
+  src,
+  alt,
+  width,
+  height,
+  className = '',
+  priority = false,
+  sizes,
+  placeholder,
+  quality = 75
+}: ProgressiveImageProps) {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [isInView, setIsInView] = useState(priority);
+  const imgRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (priority) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1, rootMargin: '50px' }
+    );
+
+    if (imgRef.current) {
+      observer.observe(imgRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [priority]);
+
+  // Generate placeholder image URL (very low quality)
+  const placeholderSrc = placeholder || `${src}?q=10&w=50`;
+  
+  return (
+    <div ref={imgRef} className={`relative overflow-hidden ${className}`}>
+      {/* Low quality placeholder - always loaded first */}
+      <Image
+        src={placeholderSrc}
+        alt={alt}
+        width={50}
+        height={Math.round((50 * height) / width)}
+        className="absolute inset-0 w-full h-full object-cover filter blur-sm scale-110"
+        priority={priority}
+        quality={10}
+      />
+
+      {/* High quality image - loaded when in view */}
+      {isInView && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: isLoaded ? 1 : 0 }}
+          transition={{ duration: 0.4, ease: 'easeOut' }}
+          className="absolute inset-0"
+        >
+          <Image
+            src={src}
+            alt={alt}
+            width={width}
+            height={height}
+            className="w-full h-full object-cover"
+            onLoad={() => setIsLoaded(true)}
+            priority={priority}
+            sizes={sizes}
+            quality={quality}
+          />
+        </motion.div>
+      )}
+
+      {/* Loading overlay */}
+      {isInView && !isLoaded && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="absolute inset-0 bg-gray-100 bg-opacity-20"
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent bg-opacity-10 animate-pulse" />
+        </motion.div>
+      )}
+    </div>
+  );
+}

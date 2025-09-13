@@ -1,6 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { ProgressiveImage } from '@/components/progressive-image';
+import { generatePlaceholder } from '@/lib/image-placeholders';
 
 interface CommunityFeaturesAnimatedProps {
   locale?: string;
@@ -106,10 +108,14 @@ export function CommunityFeaturesAnimated({ locale = 'en' }: CommunityFeaturesAn
             >
               {/* Image */}
               <div className="relative aspect-[4/3] overflow-hidden">
-                <img
+                <ProgressiveImage
                   src={feature.image}
                   alt={feature.title}
-                  className="w-full h-full object-cover"
+                  width={300}
+                  height={225}
+                  className="w-full h-full"
+                  placeholder={generatePlaceholder(feature.image.split('/').pop()?.replace('.jpg', '') || 'default', 300, 225)}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 />
               </div>
 

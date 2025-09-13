@@ -1,5 +1,7 @@
 import { NavbarClient } from '@/components/navbar-client';
 import { FooterSSR } from '@/components/footer-ssr';
+import { ProgressiveImage } from '@/components/progressive-image';
+import { generatePlaceholder } from '@/lib/image-placeholders';
 
 interface AboutPageProps {
   params: {
@@ -82,10 +84,13 @@ export default async function AboutPage({ params }: AboutPageProps) {
               {/* Card 1 */}
               <div className="group cursor-pointer">
                 <div className="aspect-[4/5] mb-4 overflow-hidden">
-                  <img 
+                  <ProgressiveImage 
                     src="/assets/images/unit-about01.jpg" 
                     alt="Modern Living"
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    width={400}
+                    height={500}
+                    className="w-full h-full transition-transform duration-300 group-hover:scale-105"
+                    placeholder={generatePlaceholder('unit-about01', 400, 500)}
                   />
                 </div>
                 <div className="space-y-2">
@@ -105,10 +110,13 @@ export default async function AboutPage({ params }: AboutPageProps) {
               {/* Card 2 */}
               <div className="group cursor-pointer">
                 <div className="aspect-[4/5] mb-4 overflow-hidden">
-                  <img 
+                  <ProgressiveImage 
                     src="/assets/images/unit-about02.jpg" 
                     alt="Professional Living"
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    width={400}
+                    height={500}
+                    className="w-full h-full transition-transform duration-300 group-hover:scale-105"
+                    placeholder={generatePlaceholder('unit-about02', 400, 500)}
                   />
                 </div>
                 <div className="space-y-2">
@@ -128,10 +136,13 @@ export default async function AboutPage({ params }: AboutPageProps) {
               {/* Card 3 */}
               <div className="group cursor-pointer">
                 <div className="aspect-[4/5] mb-4 overflow-hidden">
-                  <img 
+                  <ProgressiveImage 
                     src="/assets/images/unit-about03.jpg" 
                     alt="Safe Environment"
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    width={400}
+                    height={500}
+                    className="w-full h-full transition-transform duration-300 group-hover:scale-105"
+                    placeholder={generatePlaceholder('unit-about03', 400, 500)}
                   />
                 </div>
                 <div className="space-y-2">

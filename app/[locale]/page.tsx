@@ -8,6 +8,8 @@ import { FooterSSR } from '@/components/footer-ssr';
 import { PageTransition } from '@/components/page-transition';
 import { PrefetchLinks } from '@/components/prefetch-links';
 import { SmartCache } from '@/components/smart-cache';
+import { ProgressiveImage } from '@/components/progressive-image';
+import { generatePlaceholder } from '@/lib/image-placeholders';
 
 interface HomePageProps {
   params: {
@@ -64,52 +66,53 @@ export default async function HomePage({ params }: HomePageProps) {
             <div className="flex-1 relative">
               <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-4 h-full min-h-[400px]">
                 {/* Left - House Exterior (spans 2 rows) */}
-                <div className="relative overflow-hidden  md:row-span-2">
-                  <Image
+                <div className="relative overflow-hidden aspect-square md:row-span-2 md:aspect-auto md:h-full">
+                  <ProgressiveImage
                     src="/assets/images/house-exterior.jpg"
                     alt="Modern house exterior"
                     width={600}
                     height={600}
                     className="w-full h-full object-cover"
+                    placeholder={generatePlaceholder('house-exterior', 600, 600)}
                     priority
                   />
                 </div>
                 
                 {/* Center Top - Kitchen Interior */}
-                <div className="relative overflow-hidden ">
-                  <Image
+                <div className="relative overflow-hidden aspect-[600/290] md:aspect-auto md:h-full">
+                  <ProgressiveImage
                     src="/assets/images/kitchen-interior.jpg"
                     alt="Modern kitchen interior"
                     width={600}
                     height={290}
                     className="w-full h-full object-cover"
-                    loading="lazy"
+                    placeholder={generatePlaceholder('kitchen-interior', 600, 290)}
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                 </div>
                 
                 {/* Right - Living Room (spans 2 rows) */}
-                <div className="relative overflow-hidden  md:row-span-2">
-                  <Image
+                <div className="relative overflow-hidden aspect-square md:row-span-2 md:aspect-auto md:h-full">
+                  <ProgressiveImage
                     src="/assets/images/living-room.jpg"
                     alt="Cozy living room"
                     width={600}
                     height={600}
                     className="w-full h-full object-cover"
-                    loading="lazy"
+                    placeholder={generatePlaceholder('living-room', 600, 600)}
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                 </div>
                 
                 {/* Center Bottom - House Night View */}
-                <div className="relative overflow-hidden ">
-                  <Image
+                <div className="relative overflow-hidden aspect-[600/290] md:aspect-auto md:h-full">
+                  <ProgressiveImage
                     src="/assets/images/house-night.jpg"
                     alt="Modern house at night"
                     width={600}
                     height={290}
                     className="w-full h-full object-cover"
-                    loading="lazy"
+                    placeholder={generatePlaceholder('house-night', 600, 290)}
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                 </div>

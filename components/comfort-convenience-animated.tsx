@@ -70,9 +70,9 @@ export function ComfortConvenienceAnimated({ locale = 'en' }: ComfortConvenience
                   initial={{ scale: 0.85 }}
                   variants={{ hover: { scale: 1 } }}
                   transition={{ duration: 1, ease: "backInOut" }}
-                  className="mb-4 block origin-top-left font-serif text-4xl sm:text-4xl lg:text-[46px] font-normal leading-[0.9]"
+                  className="mb-4 mt-6 block origin-top-left font-serif text-4xl sm:text-4xl lg:text-[46px] font-normal leading-[1.2]"
                 >
-                  $1600<br />{t.month}
+                  <span className="font-sans mr-1">$</span>1600<br />{t.month}
                 </motion.span>
                 <div className="flex-1 flex flex-col justify-between">
                   <div>
@@ -80,7 +80,7 @@ export function ComfortConvenienceAnimated({ locale = 'en' }: ComfortConvenience
                     <p className="text-sm text-white/80 mb-2">{t.deposit}</p>
                     <p className="text-sm text-white/80">{t.utilities}</p>
                   </div>
-                  <button className="mt-6 rounded-lg border-2 border-white bg-white py-2 text-center font-mono font-normal text-blue-600 backdrop-blur-sm transition-all duration-200 hover:bg-white/10 hover:text-white hover:border-white/80 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-transparent">
+                  <button className="mt-6 rounded-lg border-2 border-white bg-white py-2 text-center font-medium text-blue-600 backdrop-blur-sm transition-all duration-200 hover:bg-white/10 hover:text-white hover:border-white/80 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-transparent">
                     {t.schedule}
                   </button>
                 </div>
@@ -131,9 +131,9 @@ export function ComfortConvenienceAnimated({ locale = 'en' }: ComfortConvenience
                   initial={{ scale: 0.85 }}
                   variants={{ hover: { scale: 1 } }}
                   transition={{ duration: 1, ease: "backInOut" }}
-                  className="mb-4 block origin-top-left font-serif text-4xl sm:text-4xl lg:text-[46px] font-normal leading-[0.9]"
+                  className="mb-4 mt-6 block origin-top-left font-serif text-4xl sm:text-4xl lg:text-[46px] font-normal leading-[1.2]"
                 >
-                  $1800<br />{t.month}
+                  <span className="font-sans mr-1">$</span>1800<br />{t.month}
                 </motion.span>
                 <div className="flex-1 flex flex-col justify-between">
                   <div>
@@ -141,7 +141,7 @@ export function ComfortConvenienceAnimated({ locale = 'en' }: ComfortConvenience
                     <p className="text-sm text-white/80 mb-2">{t.deposit}</p>
                     <p className="text-sm text-white/80">{t.utilities}</p>
                   </div>
-                  <button className="mt-6 rounded-lg border-2 border-white bg-white py-2 text-center font-mono font-normal text-purple-600 backdrop-blur-sm transition-all duration-200 hover:bg-white/10 hover:text-white hover:border-white/80 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-transparent">
+                  <button className="mt-6 rounded-lg border-2 border-white bg-white py-2 text-center font-medium text-purple-600 backdrop-blur-sm transition-all duration-200 hover:bg-white/10 hover:text-white hover:border-white/80 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-transparent">
                     {t.schedule}
                   </button>
                 </div>

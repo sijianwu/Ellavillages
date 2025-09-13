@@ -3,6 +3,8 @@
 import { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { ProgressiveImage } from '@/components/progressive-image';
+import { generatePlaceholder } from '@/lib/image-placeholders';
 
 interface PropertyGridProps {
   locale?: string;
@@ -174,16 +176,20 @@ export function PropertyGrid({ locale = 'en' }: PropertyGridProps) {
               >
                 {/* Property Image */}
                 <div className="relative aspect-[4/3] overflow-hidden">
-                  <img
+                  <ProgressiveImage
                     src={property.image}
                     alt={property.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    width={400}
+                    height={300}
+                    className="w-full h-full group-hover:scale-105 transition-transform duration-300"
+                    placeholder={generatePlaceholder(property.id.replace('unit', 'unit-').toLowerCase(), 400, 300)}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                   
                   {/* Price Badge */}
                   <div className="absolute top-3 left-3 sm:top-0 sm:left-0">
                     <div className="text-white px-3 py-1.5 sm:px-4 sm:py-2 text-sm sm:text-lg font-serif font-bold rounded-none sm:rounded-none" style={{ backgroundColor: '#92D63B' }}>
-                      {property.price}/{t.month}
+                      <span className="font-sans mr-1">$</span>{property.price.replace('$', '')}/{t.month}
                     </div>
                   </div>
                 </div>
@@ -193,7 +199,7 @@ export function PropertyGrid({ locale = 'en' }: PropertyGridProps) {
                     {/* Property Details */}
                     <div>
                       <h3 className="text-lg sm:text-xl font-serif font-bold text-gray-900 mb-1">
-                        {property.name} &nbsp;&nbsp; {property.price}/{t.monthAbbr}
+                        {property.name} &nbsp;&nbsp; <span className="font-sans mr-1">$</span>{property.price.replace('$', '')}/{t.monthAbbr}
                       </h3>
                       <p className="text-xs sm:text-sm text-gray-600">
                         {property.bedrooms}B{property.bathrooms}B &nbsp;&nbsp; {property.status}

@@ -13,8 +13,6 @@ const nextConfig = {
       static: 180, // 3 minutes for static pages
     },
   },
-  // Enable SWC minification for better performance
-  swcMinify: true,
   typescript: {
     ignoreBuildErrors: true,
   },
