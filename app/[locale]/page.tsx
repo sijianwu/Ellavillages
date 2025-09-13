@@ -1,12 +1,12 @@
 import Image from 'next/image';
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
 import { NavbarClient } from '@/components/navbar-client';
 import { ComfortConvenienceAnimated } from '@/components/comfort-convenience-animated';
 import { CommunityFeaturesAnimated } from '@/components/community-features-animated';
 import { PropertyGrid } from '@/components/property-grid';
 import { ContactPanelSSR } from '@/components/contact-panel-ssr';
 import { FooterSSR } from '@/components/footer-ssr';
+import { PageTransition } from '@/components/page-transition';
+import { PrefetchLinks } from '@/components/prefetch-links';
 
 interface HomePageProps {
   params: {
@@ -32,6 +32,8 @@ export default async function HomePage({ params }: HomePageProps) {
   return (
     <main className="min-h-screen">
       <NavbarClient locale={locale} />
+      <PrefetchLinks locale={locale} />
+      <PageTransition>
       
       {/* Hero Section - Enhanced from app/en/page.tsx */}
       <div className="pt-24 min-h-screen relative bg-white">
@@ -129,6 +131,7 @@ export default async function HomePage({ params }: HomePageProps) {
       
       {/* Footer */}
       <FooterSSR locale={locale} />
+      </PageTransition>
     </main>
   );
 }

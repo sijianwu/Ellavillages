@@ -79,42 +79,42 @@ export function NavbarClient({ locale = 'en' }: NavbarClientProps) {
             <div className="hidden md:flex items-center space-x-8">
               <Link 
                 href={`/${locale}`} 
-                className={`text-sm font-medium font-poppins relative ${
+                className={`text-sm font-medium font-poppins relative transition-all duration-200 ease-out group ${
                   isActive(`/${locale}`) 
                     ? 'text-black' 
-                    : 'text-gray-500 hover:text-gray-600'
+                    : 'text-gray-500 hover:text-black'
                 }`}
               >
                 {t.home}
-                {isActive(`/${locale}`) && (
-                  <div className="absolute bottom-[-8px] left-0 w-full h-[1px] bg-black"></div>
-                )}
+                <div className={`absolute bottom-[-8px] left-0 h-[1px] bg-black transition-all duration-200 ease-out ${
+                  isActive(`/${locale}`) ? 'w-full' : 'w-0 group-hover:w-full'
+                }`}></div>
               </Link>
               <Link 
                 href={`/${locale}/about`} 
-                className={`text-sm font-medium font-poppins relative ${
+                className={`text-sm font-medium font-poppins relative transition-all duration-200 ease-out group ${
                   isActive(`/${locale}/about`) 
                     ? 'text-black' 
-                    : 'text-gray-500 hover:text-gray-600'
+                    : 'text-gray-500 hover:text-black'
                 }`}
               >
                 {t.about}
-                {isActive(`/${locale}/about`) && (
-                  <div className="absolute bottom-[-8px] left-0 w-full h-[1px] bg-black"></div>
-                )}
+                <div className={`absolute bottom-[-8px] left-0 h-[1px] bg-black transition-all duration-200 ease-out ${
+                  isActive(`/${locale}/about`) ? 'w-full' : 'w-0 group-hover:w-full'
+                }`}></div>
               </Link>
               <Link 
                 href={`/${locale}/properties`} 
-                className={`text-sm font-medium font-poppins relative ${
+                className={`text-sm font-medium font-poppins relative transition-all duration-200 ease-out group ${
                   isActive(`/${locale}/properties`) 
                     ? 'text-black' 
-                    : 'text-gray-500 hover:text-gray-600'
+                    : 'text-gray-500 hover:text-black'
                 }`}
               >
                 {t.properties}
-                {isActive(`/${locale}/properties`) && (
-                  <div className="absolute bottom-[-8px] left-0 w-full h-[1px] bg-black"></div>
-                )}
+                <div className={`absolute bottom-[-8px] left-0 h-[1px] bg-black transition-all duration-200 ease-out ${
+                  isActive(`/${locale}/properties`) ? 'w-full' : 'w-0 group-hover:w-full'
+                }`}></div>
               </Link>
             </div>
 
@@ -137,18 +137,18 @@ export function NavbarClient({ locale = 'en' }: NavbarClientProps) {
             <div className="flex items-center space-x-6">
               <Link 
                 href={`/${locale}/contact`} 
-                className={`hidden md:block text-sm font-medium font-poppins relative ${
+                className={`hidden md:block text-sm font-medium font-poppins relative transition-all duration-200 ease-out group ${
                   isActive(`/${locale}/contact`) 
                     ? 'text-black' 
-                    : 'text-gray-500 hover:text-gray-600'
+                    : 'text-gray-500 hover:text-black'
                 }`}
               >
                 {t.contact}
-                {isActive(`/${locale}/contact`) && (
-                  <div className="absolute bottom-[-8px] left-0 w-full h-[1px] bg-black"></div>
-                )}
+                <div className={`absolute bottom-[-8px] left-0 h-[1px] bg-black transition-all duration-200 ease-out ${
+                  isActive(`/${locale}/contact`) ? 'w-full' : 'w-0 group-hover:w-full'
+                }`}></div>
               </Link>
-              <Button asChild variant="default" className="bg-black text-white hover:bg-gray-800 rounded-none text-xs md:text-sm px-3 md:px-4 py-2">
+              <Button asChild variant="default" className="bg-black text-white hover:bg-gray-800 rounded-none text-xs md:text-sm px-3 md:px-4 py-2 transition-all duration-200 ease-out hover:scale-105">
                 <Link href={locale === 'en' ? `/es${currentPath}` : `/en${currentPath}`} className="flex items-center space-x-1">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="md:w-4 md:h-4">
                     <circle cx="12" cy="12" r="10"/>
@@ -168,7 +168,7 @@ export function NavbarClient({ locale = 'en' }: NavbarClientProps) {
       {isMobileMenuOpen && (
         <div className="fixed inset-0 z-40 md:hidden">
           <div className="fixed inset-0 bg-black bg-opacity-50" onClick={closeMobileMenu}></div>
-          <div className="fixed top-0 left-0 w-80 h-full bg-white shadow-lg transform transition-transform duration-300">
+          <div className="fixed top-0 left-0 w-80 h-full bg-white shadow-lg transform transition-all duration-300 ease-out">
             <div className="flex flex-col h-full">
               {/* Mobile Menu Header */}
               <div className="flex items-center justify-between p-4">
@@ -194,10 +194,10 @@ export function NavbarClient({ locale = 'en' }: NavbarClientProps) {
                     key={item.path}
                     href={item.href}
                     onClick={closeMobileMenu}
-                    className={`block text-lg font-medium font-poppins py-2 ${
+                    className={`block text-lg font-medium font-poppins py-2 transition-all duration-200 ease-out ${
                       isActive(item.path)
                         ? 'text-black border-b border-black'
-                        : 'text-gray-600 hover:text-gray-900'
+                        : 'text-gray-600 hover:text-black hover:translate-x-2'
                     }`}
                   >
                     {item.label}
