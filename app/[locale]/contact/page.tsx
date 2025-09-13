@@ -4,6 +4,7 @@ import { FooterSSR } from '@/components/footer-ssr';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
+
 interface ContactPageProps {
   params: {
     locale: string;
@@ -12,6 +13,32 @@ interface ContactPageProps {
 
 export default async function ContactPage({ params }: ContactPageProps) {
   const { locale } = await params;
+  
+  // Simple translations object based on locale
+  const translations = {
+    en: {
+      title: "Send us a Message",
+      fullName: "Full Name",
+      phoneNumber: "Phone Number", 
+      message: "Message",
+      fullNamePlaceholder: "Your full name",
+      phonePlaceholder: "(555) 123-4567",
+      messagePlaceholder: "Tell us about what you're looking for, preferred move-in date, or any questions you have...",
+      sendMessage: "Send Message"
+    },
+    es: {
+      title: "Envíanos un Mensaje",
+      fullName: "Nombre Completo",
+      phoneNumber: "Número de Teléfono",
+      message: "Mensaje", 
+      fullNamePlaceholder: "Tu nombre completo",
+      phonePlaceholder: "(555) 123-4567",
+      messagePlaceholder: "Cuéntanos sobre lo que estás buscando, fecha de mudanza preferida, o cualquier pregunta que tengas...",
+      sendMessage: "Enviar Mensaje"
+    }
+  };
+  
+  const t = translations[locale as keyof typeof translations] || translations.en;
 
   return (
     <main className="min-h-screen">
@@ -22,7 +49,7 @@ export default async function ContactPage({ params }: ContactPageProps) {
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h1 className="text-[38px] font-serif font-normal text-black leading-[42px] mb-6">
-Send us a Message
+                {t.title}
               </h1>
             </div>
             
@@ -34,34 +61,34 @@ Send us a Message
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
                         <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                          Full Name *
+                          {t.fullName} *
                         </label>
                         <Input
                           type="text"
                           id="name"
                           name="name"
                           required
-                          placeholder="Your full name"
+                          placeholder={t.fullNamePlaceholder}
                         />
                       </div>
                       
                       <div>
                         <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                          Phone Number *
+                          {t.phoneNumber} *
                         </label>
                         <Input
                           type="tel"
                           id="phone"
                           name="phone"
                           required
-                          placeholder="(555) 123-4567"
+                          placeholder={t.phonePlaceholder}
                         />
                       </div>
                     </div>
                     
                     <div>
                       <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                        Message *
+                        {t.message} *
                       </label>
                       <textarea
                         id="message"
@@ -69,7 +96,7 @@ Send us a Message
                         required
                         rows={4}
                         className="flex min-h-[80px] w-full rounded-md border border-gray-200 bg-white px-3 py-2 text-sm placeholder:text-gray-500 focus:outline-none focus:border-gray-500 disabled:cursor-not-allowed disabled:opacity-50 resize-vertical"
-                        placeholder="Tell us about what you're looking for, preferred move-in date, or any questions you have..."
+                        placeholder={t.messagePlaceholder}
                       />
                     </div>
                     
@@ -77,7 +104,7 @@ Send us a Message
                       type="submit" 
                       className="w-full bg-black text-white hover:bg-gray-800 rounded-none py-3"
                     >
-                      Send Message
+                      {t.sendMessage}
                     </Button>
                   </form>
                 </CardContent>
@@ -88,7 +115,7 @@ Send us a Message
         </div>
       </section>
       
-      <ContactPanelSSR />
+      <ContactPanelSSR locale={locale} />
       <FooterSSR locale={locale} />
     </main>
   );
