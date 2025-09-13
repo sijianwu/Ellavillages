@@ -33,11 +33,18 @@ export function ProgressiveImage({
   // Check if image was already loaded in cache
   const wasPreloaded = imageLoadCache.has(src);
   const [isLoaded, setIsLoaded] = useState(wasPreloaded);
-  const [isInView, setIsInView] = useState(priority);
+  const [isInView, setIsInView] = useState(priority || wasPreloaded);
   const imgRef = useRef<HTMLDivElement>(null);
 
+  // If image was preloaded, mark it as in view immediately
   useEffect(() => {
-    if (priority) return;
+    if (wasPreloaded) {
+      setIsInView(true);
+    }
+  }, [wasPreloaded]);
+
+  useEffect(() => {
+    if (priority || wasPreloaded) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -54,7 +61,7 @@ export function ProgressiveImage({
     }
 
     return () => observer.disconnect();
-  }, [priority]);
+  }, [priority, wasPreloaded]);
 
   // Generate placeholder image URL (very low quality)
   const placeholderSrc = placeholder || `${src}?q=10&w=50`;
@@ -89,8 +96,10 @@ export function ProgressiveImage({
             height={height}
             className="w-full h-full object-cover"
             onLoad={() => {
-              setIsLoaded(true);
-              imageLoadCache.add(src);
+              if (!imageLoadCache.has(src)) {
+                setIsLoaded(true);
+                imageLoadCache.add(src);
+              }
             }}
             priority={priority}
             sizes={sizes}
