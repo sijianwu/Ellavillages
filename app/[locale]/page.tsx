@@ -7,6 +7,7 @@ import { ContactPanelSSR } from '@/components/contact-panel-ssr';
 import { FooterSSR } from '@/components/footer-ssr';
 import { PageTransition } from '@/components/page-transition';
 import { PrefetchLinks } from '@/components/prefetch-links';
+import { SmartCache } from '@/components/smart-cache';
 
 interface HomePageProps {
   params: {
@@ -33,6 +34,7 @@ export default async function HomePage({ params }: HomePageProps) {
     <main className="min-h-screen">
       <NavbarClient locale={locale} />
       <PrefetchLinks locale={locale} />
+      <SmartCache locale={locale} />
       <PageTransition>
       
       {/* Hero Section - Enhanced from app/en/page.tsx */}

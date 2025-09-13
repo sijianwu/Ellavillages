@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 
 interface NavbarClientProps {
@@ -14,6 +14,7 @@ interface NavbarClientProps {
 export function NavbarClient({ locale = 'en' }: NavbarClientProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
   
   // Get current path without locale
   const currentPath = pathname.replace(`/${locale}`, '') || '/';
@@ -57,6 +58,11 @@ export function NavbarClient({ locale = 'en' }: NavbarClientProps) {
   ];
 
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
+  
+  // Prefetch on hover for instant navigation
+  const handleMouseEnter = (href: string) => {
+    router.prefetch(href);
+  };
 
   return (
     <>
@@ -84,6 +90,7 @@ export function NavbarClient({ locale = 'en' }: NavbarClientProps) {
                     ? 'text-black' 
                     : 'text-gray-500 hover:text-black'
                 }`}
+                onMouseEnter={() => handleMouseEnter(`/${locale}`)}
               >
                 {t.home}
                 <div className={`absolute bottom-[-8px] left-0 h-[1px] bg-black transition-all duration-200 ease-out ${
@@ -97,6 +104,7 @@ export function NavbarClient({ locale = 'en' }: NavbarClientProps) {
                     ? 'text-black' 
                     : 'text-gray-500 hover:text-black'
                 }`}
+                onMouseEnter={() => handleMouseEnter(`/${locale}/about`)}
               >
                 {t.about}
                 <div className={`absolute bottom-[-8px] left-0 h-[1px] bg-black transition-all duration-200 ease-out ${
@@ -110,6 +118,7 @@ export function NavbarClient({ locale = 'en' }: NavbarClientProps) {
                     ? 'text-black' 
                     : 'text-gray-500 hover:text-black'
                 }`}
+                onMouseEnter={() => handleMouseEnter(`/${locale}/properties`)}
               >
                 {t.properties}
                 <div className={`absolute bottom-[-8px] left-0 h-[1px] bg-black transition-all duration-200 ease-out ${
@@ -142,6 +151,7 @@ export function NavbarClient({ locale = 'en' }: NavbarClientProps) {
                     ? 'text-black' 
                     : 'text-gray-500 hover:text-black'
                 }`}
+                onMouseEnter={() => handleMouseEnter(`/${locale}/contact`)}
               >
                 {t.contact}
                 <div className={`absolute bottom-[-8px] left-0 h-[1px] bg-black transition-all duration-200 ease-out ${
