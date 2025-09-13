@@ -11,10 +11,12 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-geist-sans)", "system-ui", "sans-serif"],
-        poppins: ["var(--font-poppins)", "sans-serif"],
-        prata: ["var(--font-prata)", "serif"],
-        rozha: ["var(--font-rozha-one)", "serif"],
+        sans: ["var(--font-geist-sans)", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
+        poppins: ["var(--font-poppins)", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
+        prata: ["var(--font-prata)", "Georgia", "Times", "serif"],
+        rozha: ["var(--font-rozha-one)", "Georgia", "Times", "serif"],
+        serif: ["var(--font-prata)", "Georgia", "Times", "serif"],
+        mono: ["SF Mono", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"],
       },
       colors: {
         background: "hsl(var(--background))",
