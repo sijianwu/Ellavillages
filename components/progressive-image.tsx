@@ -85,7 +85,7 @@ export function ProgressiveImage({
       {isInView && (
         <motion.div
           initial={{ opacity: wasPreloaded ? 1 : 0 }}
-          animate={{ opacity: isLoaded ? 1 : 0.3 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: wasPreloaded ? 0 : 0.4, ease: 'easeOut' }}
           className="absolute inset-0"
         >
@@ -96,10 +96,8 @@ export function ProgressiveImage({
             height={height}
             className="w-full h-full object-cover"
             onLoad={() => {
-              if (!imageLoadCache.has(src)) {
-                setIsLoaded(true);
-                imageLoadCache.add(src);
-              }
+              setIsLoaded(true);
+              imageLoadCache.add(src);
             }}
             priority={priority}
             sizes={sizes}
