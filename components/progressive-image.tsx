@@ -85,7 +85,7 @@ export function ProgressiveImage({
       {isInView && (
         <motion.div
           initial={{ opacity: wasPreloaded ? 1 : 0 }}
-          animate={{ opacity: isLoaded ? 1 : 0 }}
+          animate={{ opacity: isLoaded ? 1 : 0.3 }}
           transition={{ duration: wasPreloaded ? 0 : 0.4, ease: 'easeOut' }}
           className="absolute inset-0"
         >
