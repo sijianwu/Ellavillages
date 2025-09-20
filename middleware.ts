@@ -6,7 +6,10 @@ const intlMiddleware = createMiddleware({
   locales: ['en', 'es'],
   
   // Used when no locale matches
-  defaultLocale: 'en'
+  defaultLocale: 'en',
+  
+  // Disable automatic locale detection based on browser headers
+  localeDetection: false
 });
 
 export default function middleware(request: NextRequest) {

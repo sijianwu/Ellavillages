@@ -40,9 +40,9 @@ export default async function HomePage({ params }: HomePageProps) {
       <PageTransition>
       
       {/* Hero Section - Enhanced from app/en/page.tsx */}
-      <div className="pt-24 min-h-screen relative bg-white">
-        <div className="w-full px-4 md:px-8 lg:px-12 h-full">
-          <div className="flex flex-col min-h-[calc(100vh-7rem)]">
+      <div className="pt-24 relative bg-white">
+        <div className="w-full px-4 md:px-8 lg:px-12">
+          <div className="flex flex-col min-h-[calc(100vh-7rem)] max-h-[900px]">
             {/* Top Content - Text */}
             <div className="pt-8 pb-12">
               <div className="max-w-4xl">
@@ -64,7 +64,7 @@ export default async function HomePage({ params }: HomePageProps) {
 
             {/* Bottom Content - Hero Images Grid */}
             <div className="flex-1 relative">
-              <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-4 h-full min-h-[400px]">
+              <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-4 h-full min-h-[400px] lg:min-h-[500px] xl:min-h-[600px]">
                 {/* Left - House Exterior (spans 2 rows) */}
                 <div className="relative overflow-hidden aspect-square md:row-span-2 md:aspect-auto md:h-full">
                   <ProgressiveImage
