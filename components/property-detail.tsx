@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { PropertyImageGallery } from '@/components/property-image-gallery';
-import { ArrowLeft, MapPin, Home, Bath, Maximize, Calendar, Phone, Mail } from 'lucide-react';
+import { ArrowLeft, MapPin, Home, Bath, Maximize, Calendar, Phone, Mail, Check } from 'lucide-react';
 import Link from 'next/link';
 
 interface PropertyDetailProps {
@@ -90,7 +90,7 @@ export function PropertyDetail({ property, locale }: PropertyDetailProps) {
                 </h1>
                 <Badge 
                   variant="secondary" 
-                  className="bg-green-100 text-green-800 border-green-200"
+                  className="bg-green-500 text-white border-green-500 rounded-none"
                 >
                   {t.available}
                 </Badge>
@@ -117,7 +117,7 @@ export function PropertyDetail({ property, locale }: PropertyDetailProps) {
             {/* Right Column - Details */}
             <div className="space-y-6">
               {/* Quick Stats */}
-              <Card>
+              <Card className="rounded-none">
                 <CardContent className="p-6">
                   <h3 className="text-lg font-serif font-normal text-black mb-4">
                     {t.propertyDetails}
@@ -160,7 +160,7 @@ export function PropertyDetail({ property, locale }: PropertyDetailProps) {
               </Card>
 
               {/* Contact Section */}
-              <Card>
+              <Card className="rounded-none">
                 <CardContent className="p-6">
                   <h3 className="text-lg font-serif font-normal text-black mb-4">
                     {t.contactUs}
@@ -207,7 +207,7 @@ export function PropertyDetail({ property, locale }: PropertyDetailProps) {
 
           {/* Description Section */}
           <div className="mt-12">
-            <Card>
+            <Card className="rounded-none">
               <CardContent className="p-6 lg:p-8">
                 <h3 className="text-2xl font-serif font-normal text-black mb-4">
                   {t.description}
@@ -221,7 +221,7 @@ export function PropertyDetail({ property, locale }: PropertyDetailProps) {
 
           {/* Features Section */}
           <div className="mt-8">
-            <Card>
+            <Card className="rounded-none">
               <CardContent className="p-6 lg:p-8">
                 <h3 className="text-2xl font-serif font-normal text-black mb-6">
                   {t.features}
@@ -230,10 +230,12 @@ export function PropertyDetail({ property, locale }: PropertyDetailProps) {
                   {property.features.map((feature, index) => (
                     <div 
                       key={index}
-                      className="flex items-center p-3 bg-gray-50 rounded-lg"
+                      className="flex items-center p-4 bg-gradient-to-r from-green-50 to-white border border-green-100 rounded-none shadow-sm hover:shadow-md transition-shadow duration-200"
                     >
-                      <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
-                      <span className="text-gray-700">{feature}</span>
+                      <div className="flex items-center justify-center w-6 h-6 bg-green-500 rounded-full mr-4 flex-shrink-0">
+                        <Check className="w-3.5 h-3.5 text-white" strokeWidth={2.5} />
+                      </div>
+                      <span className="text-gray-800 font-medium">{feature}</span>
                     </div>
                   ))}
                 </div>

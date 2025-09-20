@@ -46,7 +46,7 @@ export function PropertyImageGallery({ images, propertyName }: PropertyImageGall
       {/* Main Gallery */}
       <div className="space-y-4">
         {/* Main Image */}
-        <div className="relative aspect-[4/3] overflow-hidden rounded-lg group">
+        <div className="relative aspect-[4/3] overflow-hidden rounded-none group">
           <ProgressiveImage
             src={images[currentImageIndex]}
             alt={`${propertyName} - Image ${currentImageIndex + 1}`}
@@ -106,7 +106,7 @@ export function PropertyImageGallery({ images, propertyName }: PropertyImageGall
               <button
                 key={index}
                 onClick={() => selectImage(index)}
-                className={`relative aspect-[4/3] overflow-hidden rounded-md transition-all ${
+                className={`relative aspect-[4/3] overflow-hidden rounded-none transition-all ${
                   index === currentImageIndex
                     ? 'ring-2 ring-black ring-offset-2'
                     : 'hover:opacity-80'
@@ -194,7 +194,7 @@ export function PropertyImageGallery({ images, propertyName }: PropertyImageGall
                 <button
                   key={index}
                   onClick={() => selectImage(index)}
-                  className={`relative w-16 h-12 flex-shrink-0 overflow-hidden rounded transition-all ${
+                  className={`relative w-16 h-12 flex-shrink-0 overflow-hidden rounded-none transition-all ${
                     index === currentImageIndex
                       ? 'ring-2 ring-white'
                       : 'opacity-60 hover:opacity-80'
