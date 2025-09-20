@@ -209,6 +209,11 @@ export function PropertyGrid({ locale = 'en' }: PropertyGridProps) {
                     {/* Action Button */}
                     <Button 
                       className="w-full bg-white border border-black text-gray-900 hover:bg-black hover:text-white py-2.5 sm:py-3 transition-colors focus:outline-none font-medium text-sm sm:text-base rounded-none sm:rounded-none shadow-none active:scale-95 sm:active:scale-100"
+                      onClick={() => {
+                        // Navigate to property detail page in current window
+                        const detailUrl = `/${locale}/properties/${property.id}`;
+                        window.location.href = detailUrl;
+                      }}
                     >
                       {t.scheduleVisit}
                     </Button>

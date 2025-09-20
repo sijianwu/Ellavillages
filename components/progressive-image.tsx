@@ -63,21 +63,20 @@ export function ProgressiveImage({
     return () => observer.disconnect();
   }, [priority, wasPreloaded]);
 
-  // Generate placeholder image URL (very low quality)
-  const placeholderSrc = placeholder || `${src}?q=10&w=50`;
+  // Use provided placeholder or create a simple solid color one
+  const placeholderSrc = placeholder;
   
   return (
     <div ref={imgRef} className={`relative overflow-hidden ${className}`}>
       {/* Low quality placeholder - only show if image hasn't been loaded before */}
-      {!wasPreloaded && (
-        <Image
-          src={placeholderSrc}
-          alt={alt}
-          width={50}
-          height={Math.round((50 * height) / width)}
-          className="absolute inset-0 w-full h-full object-cover filter blur-sm scale-110"
-          priority={priority}
-          quality={10}
+      {!wasPreloaded && placeholderSrc && (
+        <div 
+          className="absolute inset-0 w-full h-full bg-gray-200"
+          style={{
+            backgroundImage: `url(${placeholderSrc})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
+          }}
         />
       )}
 

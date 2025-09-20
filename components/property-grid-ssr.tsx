@@ -1,54 +1,78 @@
+'use client';
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 
-export function PropertyGridSSR() {
+interface PropertyGridSSRProps {
+  locale?: string;
+}
+
+export function PropertyGridSSR({ locale = 'en' }: PropertyGridSSRProps) {
+  // Translations
+  const translations = {
+    en: {
+      available: "Available",
+      scheduleVisit: "Schedule Visit",
+      month: "month",
+      bedrooms: "Bedrooms"
+    },
+    es: {
+      available: "Disponible",
+      scheduleVisit: "Programar Visita",
+      month: "mes",
+      bedrooms: "Habitaciones"
+    }
+  };
+
+  const t = translations[locale as keyof typeof translations] || translations.en;
+
   const properties = [
     {
-      id: 'unit-a',
+      id: 'unitA',
       name: 'Unit A',
       price: '$1600',
       bedrooms: '2 Bedrooms',
-      status: 'Available',
+      status: t.available,
       image: '/assets/images/unit-a.jpg'
     },
     {
-      id: 'unit-b',
+      id: 'unitB',
       name: 'Unit B',
       price: '$1600',
       bedrooms: '2 Bedrooms',
-      status: 'Available',
+      status: t.available,
       image: '/assets/images/unit-b.jpg'
     },
     {
-      id: 'unit-c',
+      id: 'unitC',
       name: 'Unit C',
       price: '$1600',
       bedrooms: '2 Bedrooms',
-      status: 'Available',
+      status: t.available,
       image: '/assets/images/unit-c.jpg'
     },
     {
-      id: 'unit-d',
+      id: 'unitD',
       name: 'Unit D',
       price: '$1600',
       bedrooms: '2 Bedrooms',
-      status: 'Available',
+      status: t.available,
       image: '/assets/images/unit-d.jpg'
     },
     {
-      id: 'unit-e',
+      id: 'unitE',
       name: 'Unit E',
       price: '$1800',
       bedrooms: '2 Bedrooms',
-      status: 'Available',
+      status: t.available,
       image: '/assets/images/unit-e.jpg'
     },
     {
-      id: 'unit-f',
+      id: 'unitF',
       name: 'Unit F',
       price: '$1800',
       bedrooms: '2 Bedrooms',
-      status: 'Available',
+      status: t.available,
       image: '/assets/images/unit-f.jpg'
     }
   ];
@@ -76,12 +100,19 @@ export function PropertyGridSSR() {
             <div className="space-y-2 mb-4">
               <p className="text-2xl font-bold text-gray-900">
                 {property.price}
-                <span className="text-sm font-normal text-gray-500">/month</span>
+                <span className="text-sm font-normal text-gray-500">/{t.month}</span>
               </p>
               <p className="text-gray-600">{property.bedrooms}</p>
             </div>
-            <Button className="w-full bg-white border border-black text-gray-900 hover:bg-black hover:text-white py-3 transition-colors focus:outline-none font-medium rounded-none shadow-none">
-              Schedule Visit
+            <Button 
+              className="w-full bg-white border border-black text-gray-900 hover:bg-black hover:text-white py-3 transition-colors focus:outline-none font-medium rounded-none shadow-none"
+              onClick={() => {
+                // Navigate to property detail page in current window
+                const detailUrl = `/${locale}/properties/${property.id}`;
+                window.location.href = detailUrl;
+              }}
+            >
+              {t.scheduleVisit}
             </Button>
           </CardContent>
         </Card>
