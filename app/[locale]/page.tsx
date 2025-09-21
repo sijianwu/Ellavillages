@@ -42,7 +42,7 @@ export default async function HomePage({ params }: HomePageProps) {
       {/* Hero Section - Enhanced from app/en/page.tsx */}
       <section className="pt-24 bg-white pb-8 md:pb-12">
         <div className="w-full px-4 md:px-8 lg:px-12">
-          <div className="flex flex-col min-h-[80vh] sm:min-h-[85vh]">
+          <div className="flex flex-col min-h-[80vh] sm:min-h-[85vh] md:min-h-0">
             {/* Top Content - Text */}
             <div className="pt-8 pb-12">
               <div className="max-w-4xl">
