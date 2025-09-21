@@ -35,9 +35,9 @@ export function ComfortConvenienceAnimated({ locale = 'en' }: ComfortConvenience
 
   const t = translations[locale as keyof typeof translations] || translations.en;
   return (
-    <section className="bg-white px-4 py-20">
+    <section className="bg-white px-4 pt-12 md:pt-20 pb-20">
       <div className="container mx-auto max-w-7xl">
-        <div className="flex lg:flex-row flex-col gap-12 items-center justify-between">
+        <div className="flex lg:flex-row flex-col gap-12 lg:items-center lg:justify-between">
           {/* Left Content - Text Description */}
           <div className="flex-1 max-w-[438px] space-y-6">
             <h2 className="text-[38px] font-serif font-normal text-black leading-[42px]">
