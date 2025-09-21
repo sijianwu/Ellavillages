@@ -63,7 +63,7 @@ export default async function HomePage({ params }: HomePageProps) {
             </div>
 
             {/* Bottom Content - Hero Images Grid */}
-            <div className="flex-1 relative">
+            <div className="relative">
               <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-4 h-full md:min-h-[400px] lg:min-h-[500px] xl:min-h-[600px]">
                 {/* Left - House Exterior (spans 2 rows) */}
                 <div className="relative overflow-hidden aspect-square md:row-span-2 md:aspect-auto md:h-full">
